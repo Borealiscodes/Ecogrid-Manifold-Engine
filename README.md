@@ -21,6 +21,7 @@ When reading terminal outputs, logs, or your dashboard interface, system trackin
 ## 📂 Repository Layout
 
 eco-grid-manifold/
+│
 ├── 🛡️ .github/
 │   └── workflows/
 │       └── spectral-gate.yml         # 🛡️ CI compiler check for mass/energy invariants
