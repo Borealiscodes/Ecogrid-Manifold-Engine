@@ -1,0 +1,49 @@
+name: EcoGrid Spectral Gate (NDH A3)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  spectral-gate:
+    runs-on: ubuntu-latest
+    name: NDH Structural Invariant Check
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify required files exist
+        run: |
+          echo "Checking NDH governance + mechanical + invariant + runtime layers..."
+          test -f config/infrastructure_topology.json
+          test -f config/visual_grammar.json
+          test -f src/topology_compiler.py
+          test -f src/math_engine.py
+          test -f src/main.py
+          test -f src/metrics_collector.py
+
+      - name: Run inert import checks
+        run: |
+          echo "Ensuring modules import without activating solver kernels..."
+          python - << 'EOF'
+          import src.topology_compiler
+          import src.math_engine
+          import src.metrics_collector
+          print("Imports successful (inert).")
+          EOF
+
+      - name: Run tests (inert)
+        run: |
+          echo "Running NDH test suite..."
+          python -m unittest discover -s tests -p "test_*.py"
