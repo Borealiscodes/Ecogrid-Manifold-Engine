@@ -1,0 +1,64 @@
+{
+  "hud_style": "ASCII_Concentric_Mandala",
+  "visual_grammar_specification": {
+    "version": "1.0",
+    "encoding": "UTF-8"
+  },
+  "mathematical_components": {
+    "L": {
+      "name": "Graph Laplacian Matrix",
+      "visual_anchor": "🕸️",
+      "description": "Analytical symmetric 9x9 infrastructure topology map."
+    },
+    "P": {
+      "name": "State Matrix Profile",
+      "visual_anchor": "📊",
+      "description": "Multi-dimensional fields including load, carbon, and latency vectors."
+    },
+    "I": {
+      "name": "Input Shock Injection",
+      "visual_anchor": "⚡",
+      "description": "Acute localized compute workload anomalies."
+    },
+    "VFE": {
+      "name": "Variational Free Energy Gradient",
+      "visual_anchor": "🪰",
+      "description": "Tension tracking deviation from baseline clean equilibrium anchor."
+    }
+  },
+  "runtime_state_symbols": {
+    "active": {
+      "unicode_char": "☀️",
+      "description": "Overloaded / Peak Compute Tension",
+      "layer_lane": "MECHANICAL"
+    },
+    "equilibrium": {
+      "unicode_char": "•",
+      "description": "Resting State Architectural Balance",
+      "layer_lane": "INVARIANT"
+    },
+    "collapsed": {
+      "unicode_char": "✕",
+      "description": "Circuit Breaker Triggered Allostatic Shutdown",
+      "layer_lane": "SPECTRAL"
+    }
+  },
+  "ndh_architecture_lanes": {
+    "governance": {
+      "visual_anchor": "🏛️",
+      "associated_files": ["config/infrastructure_topology.json"]
+    },
+    "mechanical": {
+      "visual_anchor": "🗜️",
+      "associated_files": ["src/topology_compiler.py"]
+    },
+    "invariant": {
+      "visual_anchor": "🛡️",
+      "associated_files": ["src/math_engine.py", ".github/workflows/spectral-gate.yml"]
+    },
+    "spectral": {
+      "visual_anchor": "🧮",
+      "associated_files": ["src/math_engine.py"]
+    }
+  }
+}
