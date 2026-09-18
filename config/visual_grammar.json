@@ -1,9 +1,10 @@
 {
   "hud_style": "ASCII_Concentric_Mandala",
   "visual_grammar_specification": {
-    "version": "1.0",
+    "version": "1.1",
     "encoding": "UTF-8"
   },
+
   "mathematical_components": {
     "L": {
       "name": "Graph Laplacian Matrix",
@@ -26,6 +27,7 @@
       "description": "Tension tracking deviation from baseline clean equilibrium anchor."
     }
   },
+
   "runtime_state_symbols": {
     "active": {
       "unicode_char": "☀️",
@@ -43,30 +45,58 @@
       "layer_lane": "SPECTRAL"
     }
   },
+
   "ndh_architecture_lanes": {
     "governance": {
       "visual_anchor": "🏛️",
-      "associated_files": ["config/infrastructure_topology.json"]
+      "associated_files": [
+        "infrastructure_topology.json",
+        "visual_grammar.json",
+        "VERSION",
+        ".github/workflows/ecogrid_release_tag.yml"
+      ]
     },
+
     "mechanical": {
       "visual_anchor": "🗜️",
-      "associated_files": ["src/topology_compiler.py"]
+      "associated_files": [
+        "src/topology_compiler.py",
+        "src/solver/ecogrid_solver.ts"
+      ]
     },
+
     "invariant": {
       "visual_anchor": "🛡️",
-      "associated_files": ["src/math_engine.py", ".github/workflows/spectral-gate.yml"]
+      "associated_files": [
+        "src/math_engine.py",
+        ".github/workflows/spectral-gate.yml",
+        "tests/vectors/ecogrid_test_vectors_v0_1_0.json"
+      ]
     },
+
     "spectral": {
       "visual_anchor": "🧮",
-      "associated_files": ["src/math_engine.py"]
+      "associated_files": [
+        "src/math_engine.py",
+        "tests/suite/ecogrid_test_suite_v0_1_0.test.ts"
+      ]
+    },
+
+    "ci": {
+      "visual_anchor": "🔧",
+      "associated_files": [
+        ".github/workflows/ecogrid_ci.yml",
+        ".github/workflows/ecogrid_lint.yml",
+        ".github/workflows/ecogrid_coverage.yml"
+      ]
     }
+  },
+
+  "provenance": {
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling",
+    "location": "Dublin, Ireland",
+    "timestamp": "19 September 2026 — 23:53 IST",
+    "ndh_clause": "This file defines expressive-only HUD grammar. No solver, spectral engine, or relaxation kernel is activated."
   }
-}
-,
-"provenance": {
-  "compiler": "Microsoft Copilot",
-  "maintainer": "Borealis S. Hedling",
-  "location": "Dublin, Ireland",
-  "timestamp": "18 September 2026 — 21:53 IST",
-  "ndh_clause": "This file defines expressive-only HUD grammar. No solver, spectral engine, or relaxation kernel is activated."
 }
