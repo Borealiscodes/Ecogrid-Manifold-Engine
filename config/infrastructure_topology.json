@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "altitude": "A3",
+  "zones": [
+    {
+      "id": "Z1",
+      "name": "North America — West",
+      "baseline_carbon_strain": 0.42,
+      "adjacent": ["Z2", "Z4"],
+      "boundary_weight": 0.88
+    },
+    {
+      "id": "Z2",
+      "name": "North America — East",
+      "baseline_carbon_strain": 0.51,
+      "adjacent": ["Z1", "Z3", "Z5"],
+      "boundary_weight": 0.91
+    },
+    {
+      "id": "Z3",
+      "name": "South America",
+      "baseline_carbon_strain": 0.37,
+      "adjacent": ["Z2", "Z6"],
+      "boundary_weight": 0.79
+    },
+    {
+      "id": "Z4",
+      "name": "Europe",
+      "baseline_carbon_strain": 0.46,
+      "adjacent": ["Z1", "Z5", "Z7"],
+      "boundary_weight": 0.93
+    },
+    {
+      "id": "Z5",
+      "name": "Africa",
+      "baseline_carbon_strain": 0.41,
+      "adjacent": ["Z2", "Z4", "Z6", "Z8"],
+      "boundary_weight": 0.82
+    },
+    {
+      "id": "Z6",
+      "name": "Middle East",
+      "baseline_carbon_strain": 0.55,
+      "adjacent": ["Z3", "Z5", "Z7", "Z9"],
+      "boundary_weight": 0.95
+    },
+    {
+      "id": "Z7",
+      "name": "Central Asia",
+      "baseline_carbon_strain": 0.48,
+      "adjacent": ["Z4", "Z6", "Z8"],
+      "boundary_weight": 0.87
+    },
+    {
+      "id": "Z8",
+      "name": "South Asia",
+      "baseline_carbon_strain": 0.52,
+      "adjacent": ["Z5", "Z7", "Z9"],
+      "boundary_weight": 0.90
+    },
+    {
+      "id": "Z9",
+      "name": "East Asia / Oceania",
+      "baseline_carbon_strain": 0.49,
+      "adjacent": ["Z6", "Z8"],
+      "boundary_weight": 0.89
+    }
+  ],
+  "global_parameters": {
+    "laplacian_dimension": 9,
+    "max_boundary_weight": 0.95,
+    "min_boundary_weight": 0.79,
+    "baseline_vfe_anchor": 0.33
+  },
+  "provenance": {
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling",
+    "location": "Dublin, Ireland",
+    "timestamp": "18 September 2026 — 21:49 IST",
+    "ndh_clause": "This file defines governance-only spatial topology. No solver, spectral engine, or relaxation kernel is activated."
+  }
+}
