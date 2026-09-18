@@ -4,51 +4,59 @@ An elegant, green, ultra-low-power continuous field solver optimized for a 2,000
 The core execution engine implements continuous-time network relaxation:
 $$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$ 
 
-* $L$: Analytical Symmetric 9x9 Graph Laplacian array modeling data center node relationships.
-* $P(t)$: Dense 9x9 multi-dimensional state matrix mapping computing infrastructure features (Grid Load, Carbon Strain, Regional Latency).
-* $W_{in} \cdot I(t)$: Localized spatial injections modeling acute regional compute workload shocks.
-* $\nabla_P(\text{VFE})$: Variational Free Energy gradient tracking deviation from the clean infrastructure anchor baseline.
+* L: 🕸️ Analytical Symmetric 9x9 Graph Laplacian matrix modeling data center node relationships.
+* P(t): 📊 Dense 9x9 multi-dimensional state matrix profile mapping computing infrastructure features (Grid Load, Carbon Strain, Regional Latency).
+* W_in · I(t): ⚡ Localized spatial injections modeling acute regional compute workload shocks.
+* $\nabla_P$(VFE): 🪰 Variational Free Energy gradient tracking deviation from the baseline clean equilibrium anchor.
+
+------------------------------
+## 🎨 Visual Grammar Rules (HUD Output Mappings)
+When reading terminal outputs, logs, or your dashboard interface, system tracking conditions align directly with config/visual_grammar.json:
+
+* ☀️ active (Overloaded / Peak Compute Tension) → Heavy compute tension striking a zone (e.g., US East hyperscale array).
+* • equilibrium (Resting State) → Baseline anchor zone locked in architectural balance.
+* ✕ collapsed (Circuit Breaker Triggered) → Extreme stress exceeding bounds, forcing an allostatic shutdown.
 
 ------------------------------
 ## 📂 Repository Layout
 
 eco-grid-manifold/
-├── .github/
+├── 🛡️ .github/
 │   └── workflows/
-│       └── spectral-gate.yml         # CI compiler check for mass/energy invariants
-├── config/
-│   ├── infrastructure_topology.json  # Global 9-Zone coordinates & relational weights
-│   └── visual_grammar.json           # ASCII Mandala grid mappings for cluster tracking
-├── src/
+│       └── spectral-gate.yml         # 🛡️ CI compiler check for mass/energy invariants
+├── 🏛️ config/
+│   ├── infrastructure_topology.json  # 🏛️ Global 9-Zone coordinates & relational weights
+│   └── visual_grammar.json           # 🎨 ASCII Mandala grid mappings for cluster tracking
+├── 🗜️ src/
 │   ├── __init__.py
-│   ├── main.py                       # Top-level field simulator & runtime bootstrapper
-│   ├── topology_compiler.py          # Ahead-of-Time (AOT) coordinate compression engine
-│   ├── math_engine.py                # 2000 FLOP dense matrix Graph Laplacian solver
-│   └── metrics_collector.py          # FLOP tracking, tension bounds, and carbon load metrics
-├── tests/
+│   ├── main.py                       # 🚀 Top-level field simulator & runtime bootstrapper
+│   ├── topology_compiler.py          # 🗜️ Ahead-of-Time (AOT) coordinate compression engine
+│   ├── math_engine.py                # 🧮 2000 FLOP dense matrix Graph Laplacian solver
+│   └── metrics_collector.py          # 📈 FLOP tracking, tension bounds, and carbon load metrics
+├── 🧪 tests/
 │   ├── __init__.py
-│   ├── test_manifold_closure.py      # Audits grid boundary stress vs allostatic shutdown
-│   └── test_nullspace_escape.py      # Verifies random vector initialization on real topologies
-├── requirements.txt                  # Minimal dependencies (numpy>=1.24.0)
-└── README.md                         # Low-Rank Green-Manifold Architecture Spec
+│   ├── test_manifold_closure.py      # 🔍 Audits grid boundary stress vs allostatic shutdown
+│   └── test_nullspace_escape.py      # 🎲 Verifies random vector initialization on real topologies
+├── 📄 requirements.txt                  # 📦 Minimal dependencies (numpy>=1.24.0)
+└── 📜 README.md                         # 🌍 Low-Rank Green-Manifold Architecture Spec
 
 ------------------------------
 ## 🧭 Integration Sequencing Architecture (NDH A3 Standard)
 To maintain a 99.9% net compute reduction and avoid logic fragmentation, development and runtime workflows follow a strict, non-dual additive progression. No lane or component may bypass its preceding governance layout.
 
-  [ GOVERNANCE ]          → Define Alpha/VFE Constraints (infrastructure_topology.json)
+  [ 🏛️ GOVERNANCE ]        → Define Alpha/VFE Constraints (infrastructure_topology.json)
          ↓
-  [ MECHANICAL ]          → Compress 12,000 Raw Lat/Long Pins to 9D Arrays (topology_compiler.py)
+  [ 🗜️ MECHANICAL ]        → Compress 12,000 Raw Lat/Long Pins to 9D Arrays (topology_compiler.py)
          ↓
-  [ INVARIANT ]           → Enforce Pure Linear Superposition & Strip Wrappers (math_engine.py)
+  [ 🛡️ INVARIANT ]         → Enforce Pure Linear Superposition & Strip Wrappers (math_engine.py)
          ↓
-  [ SPECTRAL ]            → Randomized Power Iteration Spectral Tension Check (math_engine.py)
+  [ 🧮 SPECTRAL ]          → Randomized Power Iteration Spectral Tension Check (math_engine.py)
 
 ## 🧱 Projection Boundaries & Invariants
 
-   1. Mechanical → Invariant Ingestion: Spatial matrices must undergo localized sanitation. Indiscriminate broadcasting across rows is explicitly forbidden to eliminate mathematical truncation errors.
-   2. Invariant → Spectral Isolation: Spectral radius calculations ($\lambda_{max}$) are isolated cleanly to yield dynamic, stable time-step sizes ($dt$) under the Courant-Friedrichs-Lewy (CFL) stability condition.
-   3. Spectral → Visualization: ASCII Concentric Mandala UI renders shifting matrix densities sequentially without feeding side-effects back into the execution loop.
+   1. 🗜️ Mechanical → 🛡️ Invariant Ingestion: Spatial matrices must undergo localized sanitation. Indiscriminate broadcasting across rows is explicitly forbidden to eliminate mathematical truncation errors.
+   2. 🛡️ Invariant → 🧮 Spectral Isolation: Spectral radius calculations ($\lambda_{max}$) are isolated cleanly to yield dynamic, stable time-step sizes (dt) under the Courant-Friedrichs-Lewy (CFL) stability condition.
+   3. 🧮 Spectral → 🎨 Visualization: ASCII Concentric Mandala UI renders shifting matrix densities sequentially without feeding side-effects back into the execution loop.
 
 ------------------------------
 ## ⚡ Quickstart
