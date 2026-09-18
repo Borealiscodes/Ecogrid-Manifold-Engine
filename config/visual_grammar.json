@@ -62,3 +62,11 @@
     }
   }
 }
+,
+"provenance": {
+  "compiler": "Microsoft Copilot",
+  "maintainer": "Borealis S. Hedling",
+  "location": "Dublin, Ireland",
+  "timestamp": "18 September 2026 — 21:53 IST",
+  "ndh_clause": "This file defines expressive-only HUD grammar. No solver, spectral engine, or relaxation kernel is activated."
+}
