@@ -1,93 +1,205 @@
-## 🌍 EcoGrid Manifold Engine
-An elegant, green, ultra-low-power continuous field solver optimized for a 2,000 FLOP thermodynamic ceiling. This system implements a dense 9x9 Matrix-to-Matrix Graph Laplacian continuous field relaxation layer to track massive, global computational footprints without spinning up heavy, power-hungry database architectures.
-## 📐 Mathematical Formulation
-The core execution engine implements continuous-time network relaxation:
-$$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$ 
+# 🌍 **EcoGrid Manifold Engine**  
+### *Ultra‑low‑power spectral sustainability solver • NDH A3 governed architecture*
 
-* L: 🕸️ Analytical Symmetric 9x9 Graph Laplacian matrix modeling data center node relationships.
-* P(t): 📊 Dense 9x9 multi-dimensional state matrix profile mapping computing infrastructure features (Grid Load, Carbon Strain, Regional Latency).
-* W_in · I(t): ⚡ Localized spatial injections modeling acute regional compute workload shocks.
-* $\nabla_P$(VFE): 🪰 Variational Free Energy gradient tracking deviation from the baseline clean infrastructure anchor baseline.
+EcoGrid is a **continuous field relaxation engine** designed to model sustainability tension, load imbalance, and spectral strain across distributed systems — all under a strict **2,000 FLOP thermodynamic ceiling**.  
+It implements a **dense 9×9 Laplacian relaxation solver**, a **shock‑coupling injection layer**, and a **spectral stability metric**, with dual implementations in **TypeScript** (runtime) and **Python** (scientific reference).
 
-------------------------------
-## 🎨 Visual Grammar Rules (HUD Output Mappings)
-When reading terminal outputs, logs, or your dashboard interface, system tracking conditions align directly with config/visual_grammar.json:
+EcoGrid is built for clarity, ethics, and computational minimalism.
 
-* ☀️ active (Overloaded / Peak Compute Tension) → Heavy compute tension striking a zone (e.g., US East hyperscale array).
-* • equilibrium (Resting State) → Baseline anchor zone locked in architectural balance.
-* ✕ collapsed (Circuit Breaker Triggered) → Extreme stress exceeding bounds, forcing an allostatic shutdown.
+---
 
-------------------------------
-## 📁 Production Repository Layout
+# 📐 **Mathematical Formulation**
+
+EcoGrid evolves a continuous state matrix \( P(t) \) using a governed relaxation equation:
+
+$$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$
+
+Where:
+
+- **🕸️ L — Graph Laplacian Matrix**  
+  Analytical symmetric 9×9 infrastructure topology map.
+
+- **📊 P(t) — State Matrix Profile**  
+  Multi-dimensional fields including load, carbon, and latency vectors.
+
+- **⚡ I(t) — Input Shock Injection**  
+  Acute localized compute workload anomalies.
+
+- **🪰 ∇P(VFE) — Variational Free Energy Gradient**  
+  Tension tracking deviation from baseline clean equilibrium anchor.
+
+The solver enforces:
+
+- linear superposition  
+- bounded relaxation  
+- deterministic convergence or budget exhaustion  
+- spectral stability tracking  
+
+---
+
+# 🎨 **Visual Grammar Rules (HUD Output Mappings)**  
+*(Fully preserved and extended from visual_grammar.json v1.1)*
+
+When reading terminal outputs, logs, or your dashboard interface, system tracking conditions align directly with `visual_grammar.json`:
+
+### **Runtime State Symbols**
+* ☀️ **active** — Overloaded / Peak Compute Tension  
+* • **equilibrium** — Resting State Architectural Balance  
+* ✕ **collapsed** — Circuit Breaker Triggered Allostatic Shutdown  
+
+### **Mathematical Anchors**
+* 🕸️ Laplacian (L)  
+* 📊 State Matrix (P)  
+* ⚡ Shock Injection (I)  
+* 🪰 VFE Gradient  
+
+### **NDH Architecture Lanes**
+* 🏛️ Governance — topology, grammar, versioning  
+* 🗜️ Mechanical — topology compiler, TS solver  
+* 🛡️ Invariant — math engine, spectral gate  
+* 🧮 Spectral — stability checks, test suite  
+* 🔧 CI — linting, coverage, release tagging  
+
+---
+
+# 📁 **Production Repository Layout**  
+### *Fully uncollapsed, expressive, glyph‑anchored — original style preserved*
+
 The file tree structure is fully uncollapsed, explicit, and mapped to the following precise paths:
 
-* 📦 eco-grid-manifold/
-* 📜 LICENSE.md — Split Contract: Permissive MIT Mechanics + Non-Commercial Solver Modules
-   * 📘 README.md — Low-Rank Green-Manifold Architecture Spec (This File)
-   * ⬢ requirements.txt — Bounded CPU-native matrix infrastructure environment dependencies
-   * 📁 .github/
-   * 📁 workflows/
-      * 🛡️ spectral-gate.yml — CI automated compiler check for mass/energy structural invariants
-      * 📁 config/
-   * 🗺️ infrastructure_topology.json — Global 9-Zone relational coordinates & boundary weight parameters
-      * 🎨 visual_grammar.json — ASCII HUD telemetry glyph mapping configurations
-   * 📁 src/
-   * 🐍 __init__.py — Python packaging initializer root
-      * 🚀 main.py — Top-level field relaxation simulator loop & runtime bootstrapper
-      * 🗜️ topology_compiler.py — Ahead-of-Time spatial compression engine mapping pins to matrix vectors
-      * 🧮 math_engine.py — 2,000 FLOP continuous relaxation solver executing dense graph math
-      * 📈 metrics_collector.py — Active resource monitor capturing real-world FLOP & tension profiles
-   * 📁 tests/
-   * 🐍 __init__.py — Test environment system layout root
-      * 🔍 test_manifold_closure.py — Functional boundary audit validation testing suite
-      * 🎲 test_nullspace_escape.py — Stochastic optimization integrity check for raw matrices
-   
-------------------------------
-## 🧭 Integration Sequencing Architecture (NDH A3 Standard)
-To maintain a 99.9% net compute reduction and avoid logic fragmentation, development and runtime workflows follow a strict, non-dual additive progression. No lane or component may bypass its preceding governance layout.
+* 📦 **eco-grid-manifold/**
+* 📜 **LICENSE.md** — Split Contract: Permissive MIT Mechanics + Non-Commercial Solver Modules  
+   * 📘 **README.md** — Low-Rank Green-Manifold Architecture Spec (This File)  
+   * ⬢ **requirements.txt** — Bounded CPU-native matrix infrastructure environment dependencies  
+   * 🧾 **VERSION** — Governed solver release anchor  
+   * 📁 **.github/**  
+   * 📁 **workflows/**  
+      * 🛡️ **spectral-gate.yml** — CI automated compiler check for mass/energy structural invariants  
+      * 🔧 **ecogrid_ci.yml** — Continuous integration test runner  
+      * 🔧 **ecogrid_lint.yml** — Linting governance workflow  
+      * 🔧 **ecogrid_coverage.yml** — Coverage reporting workflow  
+      * 🏛️ **ecogrid_release_tag.yml** — Automated version tagging workflow  
+      * 📁 **config/**  
+   * 🗺️ **infrastructure_topology.json** — Global 9-Zone relational coordinates & boundary weight parameters  
+      * 🎨 **visual_grammar.json** — ASCII HUD telemetry glyph mapping configurations (v1.1 expressive grammar)  
+   * 📁 **src/**  
+   * 🐍 **__init__.py** — Python packaging initializer root  
+      * 🚀 **main.py** — Top-level field relaxation simulator loop & runtime bootstrapper  
+      * 🗜️ **topology_compiler.py** — Ahead-of-Time spatial compression engine mapping pins to matrix vectors  
+      * 🧮 **math_engine.py** — 2,000 FLOP continuous relaxation solver executing dense graph math  
+      * 📈 **metrics_collector.py** — Active resource monitor capturing real-world FLOP & tension profiles  
+      * 🧩 **solver/**  
+         * 🧩 **ecogrid_solver.ts** — TypeScript runtime solver (FLOP-bounded execution engine)  
+   * 📁 **tests/**  
+   * 🐍 **__init__.py** — Test environment system layout root  
+      * 🔍 **test_manifold_closure.py** — Functional boundary audit validation testing suite  
+      * 🎲 **test_nullspace_escape.py** — Stochastic optimization integrity check for raw matrices  
+      * 📁 **vectors/**  
+         * 🧪 **ecogrid_test_vectors_v0_1_0.json** — Canonical solver test vectors  
+      * 📁 **suite/**  
+         * 🧪 **ecogrid_test_suite_v0_1_0.test.ts** — Spectral TS test suite validating solver invariants  
 
-  [ 🏛️ GOVERNANCE ]        → Define Alpha/VFE Constraints (infrastructure_topology.json)
-         ↓
-  [ 🗜️ MECHANICAL ]        → Compress 12,000 Raw Lat/Long Pins to 9D Arrays (topology_compiler.py)
-         ↓
-  [ 🛡️ INVARIANT ]         → Enforce Pure Linear Superposition & Strip Wrappers (math_engine.py)
-         ↓
-  [ 🧮 SPECTRAL ]          → Randomized Power Iteration Spectral Tension Check (math_engine.py)
+---
 
-## 🧱 Projection Boundaries & Invariants
+# 🧮 **Solver Architecture**
 
-   1. 🗜️ Mechanical → 🛡️ Invariant Ingestion: Spatial matrices must undergo localized sanitation. Indiscriminate broadcasting across rows is explicitly forbidden to eliminate mathematical truncation errors.
-   2. 🛡️ Invariant → 🧮 Spectral Isolation: Spectral radius calculations ($\lambda_{max}$) are isolated cleanly to yield dynamic, stable time-step sizes (dt) under the Courant-Friedrichs-Lewy (CFL) stability condition.
-   3. 🧮 Spectral → 🎨 Visualization: ASCII Concentric Mandala UI renders shifting matrix densities sequentially without feeding side-effects back into the execution loop.
+EcoGrid ships with **two solvers**:
 
-------------------------------
-## ⚡ Quickstart
+### 1. **TypeScript Runtime Solver**  
+Path: `src/solver/ecogrid_solver.ts`  
+Purpose: lightweight, deterministic, FLOP‑bounded runtime engine.
 
-   1. Clone or spin up your scaffolding using your workspace repository command block.
-   2. Verify your minimal python environment dependencies:
-   
-   pip install -r requirements.txt
-   
-   3. Boot up the continuous simulation relaxation loop:
-   
-   python3 src/main.py
-   
-   
-------------------------------
-## ⚖️ Licensing, Provenance & Credits## 📄 Split-Contract License Architecture
-This repository implements a split legal framework to encourage open infrastructure development while guarding the core analytical layers:
+### 2. **Python Scientific Reference Solver**  
+Path: `src/math_engine.py`  
+Purpose: high‑clarity scientific baseline for validation and research.
 
-* 🗜️ Scaffolding, Utilities & Mechanics (MIT License): All orchestration layers, compilers (src/topology_compiler.py), telemetry modules (src/metrics_collector.py), test frameworks, pipeline configurations, and diagnostic scripts are entirely open-source and free for commercial or private reuse.
-* 🧮 Algorithmic Relaxation Kernel (CAUSA Non-Commercial License 1.1): The core continuous relaxation solver housed in src/math_engine.py (derived from CAUSA/ANIMA metrics) is protected for non-profit, personal, educational, or academic research use. For-profit execution, deployment, or internal corporate benchmarking past an initial 30-day evaluation period requires a separate written commercial agreement. Inquiries should be sent to 2026.stell@gmail.com.
+Both solvers are validated against canonical test vectors and must remain consistent across releases.
 
-## 🪶 Provenance & Theoretical Context
-The continuous mathematical field relaxation mechanics and matrix evaluation patterns utilized within this codebase were originally extracted from ANIMA, a specialized cognitive architecture for computational subjectivity.
-The structural sequence adheres strictly to the NDH A3 Mechanical Integration Specification (v1.0) compiled by Borealis S. Hedling (Dublin, Ireland), ensuring altitude-safe integration boundaries across low-power computational layers.
-## 🔬 Citation & Academic Attribution
-If you use this manifold engine or its derivative metrics in a published paper or evaluation framework, please attribute the baseline release using the metadata provided in CITATION.cff:
+---
 
-Stell (2026). CAUSA: Causal Agency and Utterance-State Alignment (v0.1.0). 
-Repository: https://github.com
+# 🧪 **Testing & Validation**
+
+EcoGrid includes a governed test system:
+
+- **Canonical Test Vectors**  
+  `tests/vectors/ecogrid_test_vectors_v0_1_0.json`
+
+- **Spectral Test Suite**  
+  `tests/suite/ecogrid_test_suite_v0_1_0.test.ts`
+
+These validate:
+
+- Laplacian correctness  
+- shock propagation  
+- stability metric behavior  
+- FLOP ceiling enforcement  
+- TS ↔ Python consistency  
+
+---
+
+# 🛡️ **Governance Workflows**
+
+EcoGrid uses a full CI governance stack:
+
+- **🔧 CI Test Runner** — `.github/workflows/ecogrid_ci.yml`  
+- **🔧 Linting Workflow** — `.github/workflows/ecogrid_lint.yml`  
+- **🔧 Coverage Reporting** — `.github/workflows/ecogrid_coverage.yml`  
+- **🏛️ Release Tagging** — `.github/workflows/ecogrid_release_tag.yml`
+
+These ensure solver invariants remain stable across contributions.
+
+---
+
+# 🧭 **Integration Sequencing Architecture (NDH A3 Standard)**  
+*(Preserved exactly — part of the repo’s theoretical identity)*
+
+```
+[ 🏛️ GOVERNANCE ]  → Define Alpha/VFE Constraints (infrastructure_topology.json)
+        ↓
+[ 🗜️ MECHANICAL ]  → Compress 12,000 Raw Lat/Long Pins to 9D Arrays (topology_compiler.py)
+        ↓
+[ 🛡️ INVARIANT ]   → Enforce Pure Linear Superposition & Strip Wrappers (math_engine.py)
+        ↓
+[ 🧮 SPECTRAL ]    → Randomized Power Iteration Spectral Tension Check (math_engine.py)
+```
+
+---
+
+# ⚡ **Quickstart**
+
+### 1. Install dependencies  
+```
+pip install -r requirements.txt
+npm install
+```
+
+### 2. Run the Python reference solver  
+```
+python3 src/main.py
+```
+
+### 3. Run the TypeScript solver tests  
+```
+npm test
+```
+
+---
+
+# ⚖️ **Licensing, Provenance & Credits**
+
+### 📄 Split‑Contract License Architecture  
+- **MIT License** — scaffolding, utilities, mechanics, telemetry, tests, pipelines  
+- **CAUSA Non‑Commercial License 1.1** — continuous relaxation kernel  
+
+### 🪶 Provenance & Theoretical Context  
+EcoGrid’s mathematical lineage descends from ANIMA and CAUSA spectral‑geometry architectures.  
+It adheres strictly to the NDH A3 Mechanical Integration Specification (v1.0).
+
+### 🔬 Citation  
+```
+Stell (2026). CAUSA: Causal Agency and Utterance-State Alignment (v0.1.0).
 DOI: 10.5281/zenodo.22811988
+```
 
-------------------------------
+---
+
