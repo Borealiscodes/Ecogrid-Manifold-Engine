@@ -7,7 +7,7 @@ $$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$
 * L: 🕸️ Analytical Symmetric 9x9 Graph Laplacian matrix modeling data center node relationships.
 * P(t): 📊 Dense 9x9 multi-dimensional state matrix profile mapping computing infrastructure features (Grid Load, Carbon Strain, Regional Latency).
 * W_in · I(t): ⚡ Localized spatial injections modeling acute regional compute workload shocks.
-* $\nabla_P$(VFE): 🪰 Variational Free Energy gradient tracking deviation from the baseline clean equilibrium anchor.
+* $\nabla_P$(VFE): 🪰 Variational Free Energy gradient tracking deviation from the baseline clean infrastructure anchor baseline.
 
 ------------------------------
 ## 🎨 Visual Grammar Rules (HUD Output Mappings)
@@ -24,19 +24,23 @@ eco-grid-manifold/
 ├── 🛡️ .github/
 │   └── workflows/
 │       └── spectral-gate.yml         # 🛡️ CI compiler check for mass/energy invariants
+│
 ├── 🏛️ config/
 │   ├── infrastructure_topology.json  # 🏛️ Global 9-Zone coordinates & relational weights
 │   └── visual_grammar.json           # 🎨 ASCII Mandala grid mappings for cluster tracking
+│
 ├── 🗜️ src/
 │   ├── __init__.py
 │   ├── main.py                       # 🚀 Top-level field simulator & runtime bootstrapper
 │   ├── topology_compiler.py          # 🗜️ Ahead-of-Time (AOT) coordinate compression engine
 │   ├── math_engine.py                # 🧮 2000 FLOP dense matrix Graph Laplacian solver
 │   └── metrics_collector.py          # 📈 FLOP tracking, tension bounds, and carbon load metrics
+│
 ├── 🧪 tests/
 │   ├── __init__.py
 │   ├── test_manifold_closure.py      # 🔍 Audits grid boundary stress vs allostatic shutdown
 │   └── test_nullspace_escape.py      # 🎲 Verifies random vector initialization on real topologies
+│
 ├── 📄 requirements.txt                  # 📦 Minimal dependencies (numpy>=1.24.0)
 └── 📜 README.md                         # 🌍 Low-Rank Green-Manifold Architecture Spec
 
@@ -89,4 +93,3 @@ Repository: https://github.com
 DOI: 10.5281/zenodo.22811988
 
 ------------------------------
-
