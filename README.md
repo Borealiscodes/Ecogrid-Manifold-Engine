@@ -18,33 +18,30 @@ When reading terminal outputs, logs, or your dashboard interface, system trackin
 * ✕ collapsed (Circuit Breaker Triggered) → Extreme stress exceeding bounds, forcing an allostatic shutdown.
 
 ------------------------------
-## 📂 Repository Layout
+## 📁 Production Repository Layout
+The file tree structure is fully uncollapsed, explicit, and mapped to the following precise paths:
 
-eco-grid-manifold/
-│
-├── 🛡️ .github/
-│   └── workflows/
-│       └── spectral-gate.yml         # 🛡️ CI compiler check for mass/energy invariants
-│
-├── 🏛️ config/
-│   ├── infrastructure_topology.json  # 🏛️ Global 9-Zone coordinates & relational weights
-│   └── visual_grammar.json           # 🎨 ASCII Mandala grid mappings for cluster tracking
-│
-├── 🗜️ src/
-│   ├── __init__.py
-│   ├── main.py                       # 🚀 Top-level field simulator & runtime bootstrapper
-│   ├── topology_compiler.py          # 🗜️ Ahead-of-Time (AOT) coordinate compression engine
-│   ├── math_engine.py                # 🧮 2000 FLOP dense matrix Graph Laplacian solver
-│   └── metrics_collector.py          # 📈 FLOP tracking, tension bounds, and carbon load metrics
-│
-├── 🧪 tests/
-│   ├── __init__.py
-│   ├── test_manifold_closure.py      # 🔍 Audits grid boundary stress vs allostatic shutdown
-│   └── test_nullspace_escape.py      # 🎲 Verifies random vector initialization on real topologies
-│
-├── 📄 requirements.txt                  # 📦 Minimal dependencies (numpy>=1.24.0)
-└── 📜 README.md                         # 🌍 Low-Rank Green-Manifold Architecture Spec
-
+* 📦 eco-grid-manifold/
+* 📜 LICENSE.md — CAUSA Non-Commercial License 1.1 Source-Available Terms
+   * 📘 README.md — Low-Rank Green-Manifold Architecture Spec (This File)
+   * ⬢ requirements.txt — Bounded CPU-native matrix infrastructure environment dependencies
+   * 📁 .github/
+   * 📁 workflows/
+      * 🛡️ spectral-gate.yml — CI automated compiler check for mass/energy structural invariants
+      * 📁 config/
+   * 🗺️ infrastructure_topology.json — Global 9-Zone relational coordinates & boundary weight parameters
+      * 🎨 visual_grammar.json — ASCII HUD telemetry glyph mapping configurations
+   * 📁 src/
+   * 🐍 __init__.py — Python packaging initializer root
+      * 🚀 main.py — Top-level field relaxation simulator loop & runtime bootstrapper
+      * 🗜️ topology_compiler.py — Ahead-of-Time spatial compression engine mapping pins to matrix vectors
+      * 🧮 math_engine.py — 2,000 FLOP continuous relaxation solver executing dense graph math
+      * 📈 metrics_collector.py — Active resource monitor capturing real-world FLOP & tension profiles
+   * 📁 tests/
+   * 🐍 __init__.py — Test environment system layout root
+      * 🔍 test_manifold_closure.py — Functional boundary audit validation testing suite
+      * 🎲 test_nullspace_escape.py — Stochastic optimization integrity check for raw matrices
+   
 ------------------------------
 ## 🧭 Integration Sequencing Architecture (NDH A3 Standard)
 To maintain a 99.9% net compute reduction and avoid logic fragmentation, development and runtime workflows follow a strict, non-dual additive progression. No lane or component may bypass its preceding governance layout.
