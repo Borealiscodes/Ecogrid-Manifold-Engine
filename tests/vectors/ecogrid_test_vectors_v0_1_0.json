@@ -1,0 +1,260 @@
+# 🌿 **EcoGrid Test Vectors (v0.1.0)**  
+### *Canonical inputs + expected outputs for TS ↔ Python consistency*
+
+These vectors are intentionally **simple**, **bounded**, and **numerically stable**.  
+They validate:
+
+- Laplacian correctness  
+- relaxation loop correctness  
+- shock coupling  
+- stability metric behavior  
+- FLOP ceiling behavior  
+- TS ↔ Python consistency  
+
+---
+
+## 🧪 **Test Vector 1 — Zero‑Shock Convergence**
+
+### Purpose  
+Validate pure relaxation behavior with no shocks.  
+Solver should converge well before FLOP ceiling.
+
+### Input Bundle  
+```json
+{
+  "loads": [1,1,1,1,1,1,1,1,1],
+  "initialStrain": [0.5,0.4,0.3,0.2,0.1,0.0,-0.1,-0.2,-0.3],
+  "shocks": [
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ],
+  "alpha": 0.05,
+  "beta": 0.00,
+  "epsilon": 0.0001
+}
+```
+
+### Expected Behavior  
+- Converges in **5–9 iterations**  
+- `budgetStatus = "within_budget"`  
+- Stability history decreases monotonically  
+- Final strain approaches a smooth gradient  
+
+### Expected Output Pattern  
+```json
+{
+  "iterations": 7,
+  "budgetStatus": "within_budget",
+  "finalStrain": "smooth decreasing gradient",
+  "stabilityHistory": "monotonic decreasing"
+}
+```
+
+---
+
+## 🧪 **Test Vector 2 — Single‑Zone Shock Pulse**
+
+### Purpose  
+Validate shock coupling and directional propagation through Laplacian.
+
+### Input Bundle  
+```json
+{
+  "loads": [0,0,0,0,0,0,0,0,0],
+  "initialStrain": [0,0,0,0,0,0,0,0,0],
+  "shocks": [
+    [1,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ],
+  "alpha": 0.03,
+  "beta": 0.10,
+  "epsilon": 0.0001
+}
+```
+
+### Expected Behavior  
+- Zone 0 receives a shock at t=0  
+- Strain propagates outward through chain adjacency  
+- Solver converges in **8–12 iterations**  
+- `budgetStatus = "within_budget"`  
+
+### Expected Output Pattern  
+```json
+{
+  "iterations": 10,
+  "budgetStatus": "within_budget",
+  "finalStrain": "peak at zone 0, decaying outward",
+  "stabilityHistory": "initial spike then decay"
+}
+```
+
+---
+
+## 🧪 **Test Vector 3 — Persistent Shock Train**
+
+### Purpose  
+Validate solver under continuous forcing and ensure FLOP ceiling behavior.
+
+### Input Bundle  
+```json
+{
+  "loads": [0,0,0,0,0,0,0,0,0],
+  "initialStrain": [0,0,0,0,0,0,0,0,0],
+  "shocks": [
+    [0.2,0.2,0.2,0.2,0.2],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ],
+  "alpha": 0.02,
+  "beta": 0.05,
+  "epsilon": 0.00001
+}
+```
+
+### Expected Behavior  
+- No convergence due to persistent forcing  
+- Solver hits **iteration 17**  
+- `budgetStatus = "budget_exhausted"`  
+- Stability history remains above epsilon  
+
+### Expected Output Pattern  
+```json
+{
+  "iterations": 17,
+  "budgetStatus": "budget_exhausted",
+  "finalStrain": "non-zero steady-state under forcing",
+  "stabilityHistory": "plateau above epsilon"
+}
+```
+
+---
+
+## 🧪 **Test Vector 4 — Symmetric Initial Strain**
+
+### Purpose  
+Validate Laplacian smoothing symmetry.
+
+### Input Bundle  
+```json
+{
+  "loads": [0,0,0,0,0,0,0,0,0],
+  "initialStrain": [0.3,0.2,0.1,0.0,0.0,0.1,0.2,0.3,0.4],
+  "shocks": [
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ],
+  "alpha": 0.04,
+  "beta": 0.00,
+  "epsilon": 0.0001
+}
+```
+
+### Expected Behavior  
+- Symmetric smoothing  
+- Converges in **6–10 iterations**  
+- `budgetStatus = "within_budget"`  
+
+### Expected Output Pattern  
+```json
+{
+  "iterations": 8,
+  "budgetStatus": "within_budget",
+  "finalStrain": "smooth symmetric gradient",
+  "stabilityHistory": "monotonic decreasing"
+}
+```
+
+---
+
+## 🧪 **Test Vector 5 — High‑Alpha Instability Check**
+
+### Purpose  
+Validate solver stability under aggressive relaxation.
+
+### Input Bundle  
+```json
+{
+  "loads": [0,0,0,0,0,0,0,0,0],
+  "initialStrain": [1,0,0,0,0,0,0,0,0],
+  "shocks": [
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ],
+  "alpha": 0.15,
+  "beta": 0.00,
+  "epsilon": 0.0001
+}
+```
+
+### Expected Behavior  
+- Solver remains stable (chain Laplacian is mild)  
+- Converges in **3–6 iterations**  
+- `budgetStatus = "within_budget"`  
+
+### Expected Output Pattern  
+```json
+{
+  "iterations": 5,
+  "budgetStatus": "within_budget",
+  "finalStrain": "smooth decay from zone 0",
+  "stabilityHistory": "rapid decrease"
+}
+```
+
+---
+
+# 📦 **Provenance Footer**
+
+```
+Artifact: EcoGrid Test Vectors v0.1.0
+Lane: Solver • Tests • NDH-External
+Altitude: A3
+
+Purpose:
+  Provide canonical test vectors for validating EcoGrid solver behavior across
+  TypeScript (runtime) and Python (scientific reference) implementations.
+
+Version: 0.1.0
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 00:08 IST
+Seal: [ T E S T • V E C T O R S • v0_1_0 ]
+```
+
+---
+
