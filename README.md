@@ -22,7 +22,7 @@ When reading terminal outputs, logs, or your dashboard interface, system trackin
 The file tree structure is fully uncollapsed, explicit, and mapped to the following precise paths:
 
 * 📦 eco-grid-manifold/
-* 📜 LICENSE.md — CAUSA Non-Commercial License 1.1 Source-Available Terms
+* 📜 LICENSE.md — Split Contract: Permissive MIT Mechanics + Non-Commercial Solver Modules
    * 📘 README.md — Low-Rank Green-Manifold Architecture Spec (This File)
    * ⬢ requirements.txt — Bounded CPU-native matrix infrastructure environment dependencies
    * 📁 .github/
@@ -74,11 +74,11 @@ To maintain a 99.9% net compute reduction and avoid logic fragmentation, develop
    
    
 ------------------------------
-## ⚖️ Licensing, Provenance & Credits## 📄 Core Software License
-This project is dual-licensed under the terms of its architectural origins and tracking dependencies:
+## ⚖️ Licensing, Provenance & Credits## 📄 Split-Contract License Architecture
+This repository implements a split legal framework to encourage open infrastructure development while guarding the core analytical layers:
 
-* Non-Commercial Use: This software is available under the CAUSA Non-Commercial License 1.1 (Copyright © 2026 Stell). You are free to modify, study, and run this system for personal, educational, and non-profit research purposes. All generated datasets, analyses, and simulation results remain entirely yours to publish.
-* Commercial Restriction: Any use by or on behalf of a for-profit entity—including internal benchmarking, profiling, or evaluation beyond an initial 30-day evaluation period—is prohibited without a separate written commercial agreement. For commercial inquiries, contact 2026.stell@gmail.com.
+* 🗜️ Scaffolding, Utilities & Mechanics (MIT License): All orchestration layers, compilers (src/topology_compiler.py), telemetry modules (src/metrics_collector.py), test frameworks, pipeline configurations, and diagnostic scripts are entirely open-source and free for commercial or private reuse.
+* 🧮 Algorithmic Relaxation Kernel (CAUSA Non-Commercial License 1.1): The core continuous relaxation solver housed in src/math_engine.py (derived from CAUSA/ANIMA metrics) is protected for non-profit, personal, educational, or academic research use. For-profit execution, deployment, or internal corporate benchmarking past an initial 30-day evaluation period requires a separate written commercial agreement. Inquiries should be sent to 2026.stell@gmail.com.
 
 ## 🪶 Provenance & Theoretical Context
 The continuous mathematical field relaxation mechanics and matrix evaluation patterns utilized within this codebase were originally extracted from ANIMA, a specialized cognitive architecture for computational subjectivity.
