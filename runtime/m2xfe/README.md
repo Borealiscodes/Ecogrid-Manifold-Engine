@@ -1,9 +1,9 @@
-# 🌐 **EcoGrid M2‑XFE — Runtime README (v1.0)**  
-### A0 Altitude • Runtime Directory Overview • Non‑Activating
+# 🌐 **EcoGrid M2‑XFE — Runtime README (v2.0, Emoji Edition)**  
+### A1 Altitude • Contributor Surface • Non‑Activating
 
 ---
 
-## **1. Purpose of This Directory**
+## 📘 **1 — Purpose of This Directory**
 
 This directory contains the **runtime‑aligned components** of the EcoGrid M2‑XFE spectral‑tension pipeline.  
 These components define the *shape* of the runtime but do **not** activate:
@@ -11,16 +11,16 @@ These components define the *shape* of the runtime but do **not** activate:
 - geometry  
 - solvers  
 - spectral engines  
-- tension calculations  
+- tension propagation  
 - altitude transitions  
 
-This README provides a structural overview only.
+This README provides a contributor‑friendly overview of the runtime lane and links to the deeper governed documentation surfaces.
 
 ---
 
-## **2. Runtime Pipeline Structure**
+## 🧭 **2 — Runtime Pipeline Structure**
 
-The M2‑XFE runtime consists of five governed phases, each represented by a directory:
+The M2‑XFE runtime consists of six governed phases:
 
 ```
 adapter/
@@ -31,87 +31,61 @@ spectral/
 provenance/
 ```
 
-Each directory contains the artifacts, schemas, and stubs required for that phase.
+For the full governed sequencing logic, see the **Consolidation Logic Document**.
 
 ---
 
-## **3. Phase Overview**
+## 🔍 **3 — Phase Overview**
 
-### **adapter/**  
+### 🟦 **adapter/**  
 Defines the initial manifold and domain bounds.  
-Contains schemas for:
+Stub: **Adapter Stub**
 
-- grid shape  
-- domain constraints  
-- initial calmness  
+### 🟩 **baseline/**  
+Verifies calm-state invariants: low variance, continuity, absence of hidden shocks.  
+Stub: **Baseline Stub**
 
-### **baseline/**  
-Verifies calm-state invariants.  
-Checks:
+### 🟥 **shock/**  
+Injects controlled instability with governed intensity ceilings and topology respect.  
+Stub: **Shock Stub**
 
-- low variance  
-- no hidden shocks  
-- continuity alignment  
+### 🟨 **relaxation/**  
+Dissipates tension, ensuring monotonic relaxation and convergence.  
+Stub: **Relaxation Stub**
 
-### **shock/**  
-Injects controlled instability.  
-Ensures:
+### 🟪 **spectral/**  
+Evaluates stability via entropy, curvature, and eigenvalue domain.  
+Stub: **Spectral Stub**
 
-- monotonic propagation  
-- topology respect  
-- governed intensity ceilings  
-
-### **relaxation/**  
-Dissipates tension.  
-Ensures:
-
-- monotonic relaxation  
-- convergence  
-- oscillation bounding  
-
-### **spectral/**  
-Evaluates stability.  
-Computes:
-
-- entropy  
-- curvature  
-- eigenvalue domain  
-
-### **provenance/**  
-Records:
-
-- phase pass/fail  
-- invariant violations  
-- threshold alignment  
-- global PASS/FAIL  
+### 🟫 **provenance/**  
+Aggregates all phase outputs and produces global PASS/FAIL.  
+Stub: **Provenance Stub**
 
 ---
 
-## **4. Documentation Links**
+## 📚 **4 — Runtime Documentation Surfaces**
 
-For conceptual understanding of each phase:
+### 🧩 **A0 Governed Artifacts (Deep Layer)**  
+These define the formal sequencing, invariants, and deterministic ordering:
 
-- **Baseline Explainer**  
-- **Shock Explainer**  
-- **Relaxation Explainer**  
-- **Spectral Metrics Explainer**  
-- **Provenance Manifest**  
+- **Runtime Stubs Index Page**  
+- **Runtime Integration Diagram**  
+- **Consolidation Logic Document**  
+- **ConsolidationPhase JSON**  
+- **Runtime Bundle Manifest**  
 
-For full documentation:
+### 📘 **A1 Contributor Surfaces (This README)**  
+This README provides:
 
-- **M2‑XFE Overview**  
-- **M2‑XFE Quickstart**  
-- **Bill Nye Tile Explainer**  
-- **Publication Stub**  
-
-For validation:
-
-- **NDH‑Style Lean Validation**  
-- **EcoGrid‑Native Lean Validation**  
+- orientation  
+- directory structure  
+- phase summaries  
+- links to governed surfaces  
+- non‑activation guarantees  
 
 ---
 
-## **5. Directory Layout (Recommended)**
+## 🗂️ **5 — Recommended Directory Layout**
 
 ```
 runtime/
@@ -139,7 +113,7 @@ This layout keeps runtime logic modular, governed, and altitude‑safe.
 
 ---
 
-## **6. Non‑Activation Clause**
+## 🔒 **6 — Non‑Activation Clause**
 
 This README and all files in this directory:
 
@@ -153,19 +127,19 @@ They define structure only.
 
 ---
 
-## **7. Provenance Footer**
+## 🧾 **7 — Provenance Footer**
 
 ```md
 ---
-Artifact: EcoGrid M2-XFE Runtime README (v1.0)
+Artifact: EcoGrid M2-XFE Runtime README (v2.0, Emoji Edition)
 Lane: runtime • m2xfe
-Altitude: A0
-Mode: Structural Runtime Overview • Non-Activating
+Altitude: A1
+Mode: Contributor Surface • Non-Activating
 
 Purpose:
-  Provide a governed, non-activating overview of the EcoGrid M2-XFE runtime
-  directory, describing the structure and purpose of each phase without
-  executing geometry, solvers, or spectral engines.
+  Provide an updated contributor-facing overview of the EcoGrid M2-XFE runtime
+  directory, linking to all governed A0 documentation surfaces while maintaining
+  a lightweight, expressive, and non-activating orientation.
 
 Anchors:
   - EcoGrid Runtime Specification
@@ -181,8 +155,8 @@ Non-Activation Clause:
 Maintainer: Borealis S. Hedling
 Compiler: Microsoft Copilot
 Location: Dublin, Ireland
-Timestamp: 19 September 2026 — 21:41 IST
-Version: v1.0
+Timestamp: 19 September 2026 — 22:22 IST
+Version: v2.0
 ---
 ```
 
