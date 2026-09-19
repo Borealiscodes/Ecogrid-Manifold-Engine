@@ -1,0 +1,181 @@
+# 🌌 **EcoGrid M2‑XFE Baseline Run Template (v1.0)**  
+**Lane:** runtime • simulation • baseline  
+**Altitude:** A0  
+**Mode:** Execution • Deterministic • Pre‑Shock
+
+The Baseline Run is the **first active computation** in the M2‑XFE runtime.  
+It consumes the **Adapter Output** and produces:
+
+- a stabilized tension grid  
+- baseline metrics  
+- baseline provenance  
+- baseline falsification signals  
+
+This run must satisfy:
+
+- **Baseline Thresholds**  
+- **Baseline Acceptance**  
+- **Baseline Invariants**  
+
+before the Shock Run is allowed to execute.
+
+---
+
+## 🧭 **1. Purpose of the Baseline Run**
+
+The Baseline Run:
+
+- verifies the manifold is calm  
+- ensures no hidden shocks exist  
+- stabilizes the tension field  
+- computes baseline metrics  
+- prepares the grid for shock injection  
+
+It is the “ground truth” state of the simulation.
+
+---
+
+## 🧩 **2. Baseline Run Inputs**
+
+The Baseline Run consumes:
+
+- **Adapter Output JSON**  
+- **Thresholds Artifact**  
+- **Acceptance Criteria Artifact**  
+- **Invariant Schema Artifact**
+
+These inputs guarantee governed execution.
+
+---
+
+## 🧱 **3. Baseline Run Machine‑Readable Template**
+
+```json
+{
+  "baseline_version": "1.0",
+  "adapter_source": "AdapterOutput_M2XFE_v1_0.json",
+
+  "inputs": {
+    "initial_grid": "from_adapter",
+    "thresholds": "Thresholds_M2XFE_v1_0.md",
+    "acceptance": "AcceptanceCriteria_M2XFE_v1_0.md",
+    "invariants": "InvariantSchema_M2XFE_v1_0.md"
+  },
+
+  "execution": {
+    "deterministic": true,
+    "flop_ceiling": 2000,
+    "steps": [
+      "load_initial_grid",
+      "verify_grid_shape",
+      "verify_domain_bounds",
+      "compute_baseline_variance",
+      "compute_baseline_max_tension",
+      "scan_for_hidden_shocks",
+      "compute_spatial_continuity",
+      "generate_baseline_metrics"
+    ]
+  },
+
+  "metrics": {
+    "variance": null,
+    "max_tension": null,
+    "continuity_score": null,
+    "hidden_shock_detected": false
+  },
+
+  "falsification": {
+    "threshold_violations": [],
+    "invariant_violations": [],
+    "acceptance_failure": false
+  },
+
+  "provenance": {
+    "timestamp": null,
+    "baseline_version": "1.0",
+    "adapter_version": "1.0",
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling"
+  }
+}
+```
+
+---
+
+## ⚙️ **4. Execution Logic (governed)**
+
+The Baseline Run performs the following governed checks:
+
+- **Grid shape invariant**  
+- **Domain invariant**  
+- **Low‑variance invariant**  
+- **No hidden shocks invariant**  
+- **Continuity invariant**
+
+If any invariant fails, the simulation halts.
+
+If all invariants pass, the baseline metrics are recorded and the Shock Run is permitted.
+
+---
+
+## 🔮 **5. Falsification Conditions**
+
+The Baseline Run is **FAIL** if:
+
+- variance > threshold  
+- max tension > threshold  
+- any cell > baseline ceiling  
+- any hidden shock detected  
+- any invariant violated  
+- any acceptance criteria unmet  
+
+This ensures the simulation cannot proceed from an unstable state.
+
+---
+
+## 🧱 **6. Baseline → Shock → Relaxation → Metrics**
+
+This artifact is **A0 altitude**.  
+It must be followed by:
+
+- **Shock Run Template**  
+- **Relaxation Run Template**  
+- **Spectral Metrics Template**  
+
+---
+
+## 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Baseline Run Template — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • baseline
+Altitude: A0
+Mode: Execution • Deterministic • Pre-Shock
+
+Purpose:
+  Define the deterministic baseline execution template for the M2-XFE 
+  spectral-tension simulation. Verifies calm-state invariants, computes 
+  baseline metrics, and ensures governed stability before shock injection.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines execution template only. It does not activate NDH 
+  geometry, spectral runtime, solver kernels, membranes, routing skeletons, 
+  or any technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 21:02 IST
+Version: v1.0
+---
+```
+
+---
+
