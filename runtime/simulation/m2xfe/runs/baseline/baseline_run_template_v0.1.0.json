@@ -1,0 +1,69 @@
+# **EcoGrid Baseline Run Template (M2‑XFE)**  
+### Version: v0.1.0  
+### Altitude: A1  
+### Lane: Runtime • Execution Surface  
+### Purpose: Provide the governed JSON template for EcoGrid’s baseline tension field prior to shock injection.
+
+---
+
+## 🌐 **1. Template Overview**
+The baseline run represents:
+
+- the **initial tension field**  
+- derived solely from normalized node attributes  
+- before titan kills, mass jumps, or TD spikes are applied  
+- using the adapter’s deterministic mapping  
+
+This is the “zero‑state” of the spectral engine.
+
+---
+
+## 📘 **2. JSON Template**
+```json
+{
+  "run_id": "baseline_v0.1.0",
+  "generated_at": "2026-09-19T14:51:00Z",
+  "grid_size": "9x9",
+  "tension_field": [
+    [
+      {
+        "tension_init": 0.0,
+        "kill_density": 0.0,
+        "fleet_density": 0.0,
+        "td_intensity": 0.0,
+        "is_chokepoint": false
+      }
+    ]
+  ],
+  "metadata": {
+    "source_manifold": "m2xfe_manifold_schema_v0.1.0.json",
+    "adapter_version": "v0.1.0",
+    "shock_injected": false,
+    "notes": "Baseline tension field prior to shock events."
+  }
+}
+```
+
+### Notes:
+- `tension_field` is a **9×9 array**; template shows the structure, not full population.  
+- All values are **normalized** and **deterministic**.  
+- No shock events appear in this run.  
+- This template is FLOP‑neutral (no computation).
+
+---
+
+## 🪶 **3. Provenance Footer**
+```
+---
+Artifact: EcoGrid Baseline Run Template (M2-XFE)
+Version: v0.1.0
+Altitude: A1
+Lane: Runtime • Execution Surface
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Seal: [ B A S E L I N E • M 2 X F E • v0_1_0 ]
+---
+```
+
+---
+
