@@ -1,0 +1,87 @@
+# **EcoGrid Shock Run Template (M2‑XFE)**  
+### Version: v0.1.0  
+### Altitude: A1  
+### Lane: Runtime • Execution Surface  
+### Purpose: Provide the governed JSON template for EcoGrid’s shock‑injected tension field using M2‑XFE shock events.
+
+---
+
+## 🌐 **1. Template Overview**
+The shock run represents:
+
+- the **initial tension field** (baseline)  
+- **plus shock injections** derived from:  
+  - titan kills  
+  - mass fleet jumps  
+  - severe time dilation spikes  
+
+Shock events are mapped to grid coordinates using the adapter’s deterministic projection.
+
+This run tests **H2 — transient instability**.
+
+---
+
+## 📘 **2. JSON Template**
+```json
+{
+  "run_id": "shock_v0.1.0",
+  "generated_at": "2026-09-19T14:53:00Z",
+  "grid_size": "9x9",
+
+  "tension_field": [
+    [
+      {
+        "tension_init": 0.0,
+        "kill_density": 0.0,
+        "fleet_density": 0.0,
+        "td_intensity": 0.0,
+        "is_chokepoint": false,
+        "shock_applied": false,
+        "shock_magnitude": 0.0,
+        "shock_type": null
+      }
+    ]
+  ],
+
+  "shocks": [
+    {
+      "x": 4,
+      "y": 7,
+      "magnitude": 0.92,
+      "shock_type": "titan_kill",
+      "timestamp": "2020-12-31T02:14:00Z"
+    }
+  ],
+
+  "metadata": {
+    "source_manifold": "m2xfe_manifold_schema_v0.1.0.json",
+    "adapter_version": "v0.1.0",
+    "shock_injected": true,
+    "notes": "Shock events applied to tension field using deterministic mapping."
+  }
+}
+```
+
+### Notes:
+- `tension_field` is a **9×9 array**; template shows structure only.  
+- `shocks[]` contains **mapped shock events** from the manifold.  
+- `shock_applied` flags which grid cells received shock injection.  
+- All values remain normalized and deterministic.
+
+---
+
+## 🪶 **3. Provenance Footer**
+```
+---
+Artifact: EcoGrid Shock Run Template (M2-XFE)
+Version: v0.1.0
+Altitude: A1
+Lane: Runtime • Execution Surface
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Seal: [ S H O C K • M 2 X F E • v0_1_0 ]
+---
+```
+
+---
+
