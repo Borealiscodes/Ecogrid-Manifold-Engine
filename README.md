@@ -1,4 +1,4 @@
-# 📘 **EcoGrid Manifold Engine**  
+# 🌍 **EcoGrid Manifold Engine**  
 ### *Ultra‑low‑power spectral tension solver • NDH A3 governed architecture*
 
 EcoGrid is a **continuous spectral‑tension engine** designed to model instability, load imbalance, sustainability strain, and spectral drift across structured or synthetic environments — all under a strict **2,000 FLOP thermodynamic ceiling**.
@@ -8,10 +8,22 @@ It implements:
 - a **dense 9×9 Laplacian relaxation solver**  
 - a **shock‑coupling injection layer**  
 - a **spectral stability metric**  
-- dual implementations in **TypeScript** (runtime) and **Python** (scientific reference)  
+- dual implementations in TypeScript (runtime) and Python (scientific reference)  
 - expressive HUD glyphs defined in `/config/visual_grammar.json v1.2`  
 
 EcoGrid is built for clarity, ethics, and computational minimalism.
+
+---
+
+# 🗄️ **Legacy README Archive**
+
+The original README has been preserved for provenance:
+
+```
+/public/archive/readme_v1_0.md
+```
+
+> NDH Governance: Legacy documentation is archived, never deleted.
 
 ---
 
@@ -19,12 +31,10 @@ EcoGrid is built for clarity, ethics, and computational minimalism.
 
 The following equation is a **conceptual governing anchor** and is **not executed directly** by the solver:
 
-```
 $$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$
-```
 
 > **NDH Gate:**  
-> This equation is expressive‑only. EcoGrid does **not** implement a continuous PDE solver.
+> This PDE is expressive‑only. EcoGrid does **not** implement a continuous solver.
 
 ---
 
@@ -32,44 +42,41 @@ $$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$
 
 EcoGrid uses a **bounded, deterministic relaxation step**:
 
-```
 $$P_{t+1} = P_t - \alpha (L P_t) + \beta (W_{in} I_t) - \gamma \nabla_P(\text{VFE}_t)$$
-```
 
 > **NDH Gate:**  
-> This is the **only** mathematical form executed by the solver.  
-> No continuous integration, no unbounded dynamics, no implicit solvers.
+> This is the **only** mathematical form executed by the solver.
 
 ---
 
 # 🎨 **Visual Grammar (HUD + Runtime Experiment Grammar)**  
 *(Defined in `/config/visual_grammar.json v1.2`)*
 
-### **Mathematical Anchors**  
+### Mathematical Anchors  
 🕸️ L • 📊 P • ⚡ I • 🪰 VFE
 
-### **Runtime State Symbols**  
+### Runtime State Symbols  
 ☀️ active • • equilibrium • ✕ collapsed
 
-### **Runtime Experiment Glyphs**  
+### Runtime Experiment Glyphs  
 🌱 baseline • 💥 shock • 🌊 relaxation • 📈 metrics • 🔗 integration • 📚 index • 🧪 provenance
 
-### **NDH Architecture Lanes**  
+### NDH Architecture Lanes  
 🏛️ Governance • 🗜️ Mechanical • 🛡️ Invariant • 🧮 Spectral • 🔧 CI
 
 ---
 
 # 🧪 **Included Canonical Runtime Experiment — M2‑XFE Pipeline**
 
-EcoGrid ships with a fully governed, FLOP‑bounded runtime experiment demonstrating the complete spectral‑tension workflow:
+EcoGrid ships with a governed, FLOP‑bounded runtime experiment demonstrating the full spectral‑tension workflow:
 
-- 🌱 **Baseline Field** — initial tension matrix  
-- 💥 **Shock Injection** — mapped anomalies  
-- 🌊 **Relaxation Cycles** — iterative decay  
-- 📈 **Spectral Metrics** — eigenvalue drift, imbalance signatures  
-- 🔗 **Integration Stub** — sequencing and provenance propagation  
-- 📚 **Runtime Index** — catalog of all experiment artifacts  
-- 🧪 **Provenance Chain** — governed lineage for reproducibility  
+- 🌱 baseline field  
+- 💥 shock injection  
+- 🌊 relaxation cycles  
+- 📈 spectral metrics  
+- 🔗 integration stub  
+- 📚 runtime index  
+- 🧪 provenance chain  
 
 Location:
 
@@ -77,16 +84,15 @@ Location:
 /ecogrid/runtime/simulation/m2xfe/
 ```
 
-This is the **initial experiment** demonstrating EcoGrid’s runtime engine, spectral solver, expressive grammar, and governed reproducibility.
+This is the **initial experiment** demonstrating EcoGrid’s runtime engine.
 
 ---
 
 # 🧩 **Why You Must Build the Testing Environment Before Running Tests**
 
-EcoGrid’s testing system is **not passive** — it is a governed scientific apparatus.  
-You must build the testing environment *before* running tests because:
+EcoGrid’s testing system is a **governed scientific apparatus**, not a passive test suite.
 
-### 1. **The solver and runtime pipeline must be structurally complete**  
+### 1. The solver and runtime pipeline must be structurally complete  
 Tests validate:
 
 - Laplacian correctness  
@@ -95,19 +101,9 @@ Tests validate:
 - FLOP ceilings  
 - TS ↔ Python consistency  
 
-These cannot be validated until:
+These require the **full pipeline** to exist.
 
-- the topology compiler exists  
-- the math engine exists  
-- the runtime solver exists  
-- the metrics collector exists  
-- the runtime experiment grammar exists  
-
-Building the environment ensures the **architecture is whole**.
-
----
-
-### 2. **The test suite audits the entire pipeline, not isolated files**  
+### 2. The test suite audits the entire manifold  
 EcoGrid tests:
 
 - the manifold  
@@ -117,11 +113,7 @@ EcoGrid tests:
 - the spectral gate  
 - the expressive grammar  
 
-Tests require the **full pipeline** to be present.
-
----
-
-### 3. **NDH A3 governance requires pre‑test structural verification**  
+### 3. NDH A3 governance requires pre‑test structural verification  
 Before tests run, the environment must demonstrate:
 
 - correct lane separation  
@@ -130,29 +122,14 @@ Before tests run, the environment must demonstrate:
 - correct solver invariants  
 - correct FLOP ceilings  
 
-This is part of the NDH A3 Mechanical Integration Specification.
+### 4. Empirically, building the environment demonstrates:
 
----
-
-### 4. **Empirically, building the environment demonstrates:**
-
-#### ✔ Deterministic solver compilation  
-No randomness, no external calls, no drift.
-
-#### ✔ Structural integrity of the pipeline  
-All directories, files, and lanes exist and are correctly placed.
-
-#### ✔ Expressive grammar validity  
-HUD glyphs and runtime glyphs resolve correctly.
-
-#### ✔ Spectral engine stability  
-Eigenvalue drift behaves as expected.
-
-#### ✔ TS ↔ Python solver consistency  
-Both solvers produce identical outputs.
-
-#### ✔ Reproducible runtime experiment  
-Baseline → shock → relaxation → metrics chain produces stable results.
+- deterministic solver compilation  
+- structural integrity  
+- expressive grammar validity  
+- spectral stability  
+- TS ↔ Python consistency  
+- reproducible runtime experiment behavior  
 
 Building the environment is the **empirical proof** that EcoGrid is ready to be tested.
 
@@ -170,11 +147,11 @@ eco-grid-manifold/
 ├── ⬢ requirements.txt
 │
 ├── 🏛️ config/
-│   └── visual_grammar.json          ← expressive HUD + runtime grammar v1.2
+│   └── 🎨 visual_grammar.json        ← expressive HUD + runtime grammar v1.2
 │
 ├── 📁 public/
 │   └── archive/
-│       └── readme_v1_0.md           ← archived legacy README
+│       └── 📘 readme_v1_0.md         ← archived legacy README
 │
 ├── 📁 .github/
 │   └── workflows/
@@ -184,7 +161,7 @@ eco-grid-manifold/
 │       └── 🏛️ ecogrid_release_tag.yml
 │
 ├── 🗺️ infrastructure_topology.json
-├── 🎨 visual_grammar.json           ← legacy pointer (kept for compatibility)
+├── 🎨 visual_grammar.json            ← legacy pointer (kept for compatibility)
 │
 ├── 📁 src/
 │   ├── 🐍 __init__.py
@@ -193,7 +170,7 @@ eco-grid-manifold/
 │   ├── 🛡️ math_engine.py
 │   ├── 📈 metrics_collector.py
 │   └── 🧩 solver/
-│       └── ecogrid_solver.ts
+│       └── 🧩 ecogrid_solver.ts
 │
 └── 📁 tests/
     ├── 🐍 __init__.py
@@ -224,15 +201,15 @@ npm test
 
 # ⚖️ **Licensing, Provenance & Credits**
 
-### 📄 Split‑Contract License Architecture  
+### Split‑Contract License  
 MIT License (mechanics, utilities, tests)  
 CAUSA Non‑Commercial License 1.1 (continuous relaxation kernel)
 
-### 🪶 Provenance  
+### Provenance  
 EcoGrid adheres to NDH A3 Mechanical Integration Specification (v1.0).  
 Mathematical lineage descends from ANIMA and CAUSA spectral‑geometry architectures.
 
-### 🔬 Citation  
+### Citation  
 ```
 Stell (2026). CAUSA: Causal Agency and Utterance-State Alignment (v0.1.0).
 DOI: 10.5281/zenodo.22811988
