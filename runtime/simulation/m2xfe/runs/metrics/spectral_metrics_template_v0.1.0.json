@@ -1,0 +1,84 @@
+# **EcoGrid Spectral Metrics Template (M2‑XFE)**  
+### Version: v0.1.0  
+### Altitude: A1  
+### Lane: Runtime • Analysis Surface  
+### Purpose: Provide the governed JSON template for EcoGrid’s spectral‑stability metrics computed after relaxation cycles.
+
+---
+
+## 🌐 **1. Template Overview**
+Spectral metrics represent:
+
+- the **post‑relaxation stability** of the tension field  
+- computed using EcoGrid’s spectral geometry model  
+- under the **2,000 FLOP ceiling**  
+- capturing:  
+  - eigenvalue drift  
+  - imbalance signatures  
+  - residual tension  
+  - chokepoint persistence  
+
+This run tests **H1**, **H2**, and **H3** simultaneously.
+
+---
+
+## 📘 **2. JSON Template**
+```json
+{
+  "run_id": "spectral_metrics_v0.1.0",
+  "generated_at": "2026-09-19T14:57:00Z",
+  "grid_size": "9x9",
+
+  "metrics": {
+    "eigenvalue_drift": {
+      "initial": 0.0,
+      "final": 0.0,
+      "delta": 0.0
+    },
+
+    "imbalance_signature": {
+      "max_imbalance": 0.0,
+      "mean_imbalance": 0.0,
+      "persistent_cells": []
+    },
+
+    "residual_tension": {
+      "global_residual": 0.0,
+      "chokepoint_residual": 0.0
+    },
+
+    "stability_score": 0.0
+  },
+
+  "metadata": {
+    "source_relaxation": "relaxation_cycles.json",
+    "adapter_version": "v0.1.0",
+    "notes": "Spectral stability metrics computed after relaxation cycles."
+  }
+}
+```
+
+### Notes:
+- `eigenvalue_drift` measures how the spectral signature changes across cycles.  
+- `imbalance_signature` identifies cells that retain instability.  
+- `persistent_cells` often include chokepoints.  
+- `stability_score` is a normalized summary metric.  
+- All values remain deterministic and normalized.
+
+---
+
+## 🪶 **3. Provenance Footer**
+```
+---
+Artifact: EcoGrid Spectral Metrics Template (M2-XFE)
+Version: v0.1.0
+Altitude: A1
+Lane: Runtime • Analysis Surface
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Seal: [ S P E C T R A L • M 2 X F E • v0_1_0 ]
+---
+```
+
+---
+
