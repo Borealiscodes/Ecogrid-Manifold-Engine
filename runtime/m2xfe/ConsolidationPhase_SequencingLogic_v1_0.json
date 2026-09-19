@@ -1,0 +1,120 @@
+{
+  "artifact": {
+    "name": "EcoGrid M2-XFE Consolidation Phase Sequencing & Logic",
+    "version": "v1.0",
+    "lane": "runtime/m2xfe",
+    "altitude": "A0",
+    "mode": "structural_governance_non_activating"
+  },
+  "pipeline": {
+    "canonical_order": [
+      "adapter",
+      "baseline",
+      "shock",
+      "relaxation",
+      "spectral",
+      "provenance"
+    ],
+    "phases": {
+      "adapter": {
+        "id": "adapter",
+        "stub_path": "runtime/m2xfe/adapter/adapter_stub.py",
+        "role": "define_manifold_and_domain_bounds",
+        "outputs": [
+          "adapter_output"
+        ],
+        "consumes": [],
+        "non_activation": true
+      },
+      "baseline": {
+        "id": "baseline",
+        "stub_path": "runtime/m2xfe/baseline/baseline_stub.py",
+        "role": "verify_calmness_variance_continuity",
+        "outputs": [
+          "baseline_result"
+        ],
+        "consumes": [
+          "adapter_output"
+        ],
+        "non_activation": true
+      },
+      "shock": {
+        "id": "shock",
+        "stub_path": "runtime/m2xfe/shock/shock_stub.py",
+        "role": "inject_governed_instability_with_topology_and_intensity_bounds",
+        "outputs": [
+          "shock_result"
+        ],
+        "consumes": [
+          "baseline_result"
+        ],
+        "non_activation": true
+      },
+      "relaxation": {
+        "id": "relaxation",
+        "stub_path": "runtime/m2xfe/relaxation/relaxation_stub.py",
+        "role": "dissipate_tension_ensure_monotonic_relaxation_and_convergence",
+        "outputs": [
+          "relaxation_result"
+        ],
+        "consumes": [
+          "shock_result"
+        ],
+        "non_activation": true
+      },
+      "spectral": {
+        "id": "spectral",
+        "stub_path": "runtime/m2xfe/spectral/spectral_stub.py",
+        "role": "evaluate_stability_entropy_curvature_eigenvalue_domain",
+        "outputs": [
+          "spectral_metrics"
+        ],
+        "consumes": [
+          "relaxation_result"
+        ],
+        "non_activation": true
+      },
+      "provenance": {
+        "id": "provenance",
+        "stub_path": "runtime/m2xfe/provenance/provenance_stub.py",
+        "role": "aggregate_phase_outputs_and_produce_global_pass_fail_manifest",
+        "outputs": [
+          "provenance_manifest"
+        ],
+        "consumes": [
+          "adapter_output",
+          "baseline_result",
+          "shock_result",
+          "relaxation_result",
+          "spectral_metrics"
+        ],
+        "non_activation": true
+      }
+    }
+  },
+  "sequencing_rules": {
+    "strict_order": true,
+    "rules": [
+      "no_phase_may_execute_out_of_order",
+      "each_phase_requires_previous_phase_output",
+      "all_phases_must_maintain_non_activation_discipline",
+      "provenance_is_only_global_aggregator",
+      "all_stubs_must_remain_deterministic"
+    ]
+  },
+  "invariants": {
+    "sequential_integrity": true,
+    "invariant_preservation": true,
+    "topology_respect": true,
+    "deterministic_output": true,
+    "non_activation_discipline": true,
+    "provenance_continuity": true
+  },
+  "provenance": {
+    "maintainer": "Borealis S. Hedling",
+    "compiler": "Microsoft Copilot",
+    "location": "Dublin, Ireland",
+    "timestamp_ist": "2026-09-19T22:11:00",
+    "non_activation_clause": "This JSON artifact is descriptive only and does not activate geometry, solvers, spectral engines, or any execution-phase system."
+  }
+}
