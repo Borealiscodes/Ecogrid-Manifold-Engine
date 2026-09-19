@@ -1,0 +1,175 @@
+# 🌐 **EcoGrid M2‑XFE Spectral Metrics Template (v1.0)**  
+**Lane:** runtime • simulation • metrics  
+**Altitude:** A0  
+**Mode:** Execution • Deterministic • Diagnostic
+
+This is the **final execution phase** of the M2‑XFE runtime pipeline.  
+It consumes the Relaxation Run output and performs **spectral analysis** to determine whether the manifold has stabilized.
+
+It must satisfy:
+
+- **Spectral Thresholds**  
+- **Spectral Acceptance**  
+- **Spectral Invariants**  
+
+before the Provenance Manifest is generated.
+
+---
+
+## 🧭 **1. Purpose of the Spectral Metrics Phase**
+
+The Spectral Metrics phase:
+
+- computes spectral entropy  
+- computes spectral curvature  
+- computes eigenvalue domain  
+- verifies spectral stability  
+- detects spectral spikes  
+- produces final PASS/FAIL for the entire simulation  
+
+This is the “diagnostic lens” of the runtime.
+
+---
+
+## 🧩 **2. Spectral Metrics Inputs**
+
+The Spectral Metrics phase consumes:
+
+- **Relaxation Run Output**  
+- **Thresholds Artifact**  
+- **Acceptance Criteria Artifact**  
+- **Invariant Schema Artifact**
+
+These ensure governed, falsifiable spectral evaluation.
+
+---
+
+## 🧱 **3. Spectral Metrics Machine‑Readable Template**
+
+```json
+{
+  "spectral_version": "1.0",
+  "relaxation_source": "RelaxationRun_M2XFE_v1_0.json",
+
+  "inputs": {
+    "relaxation_grid": "from_relaxation",
+    "thresholds": "Thresholds_M2XFE_v1_0.md",
+    "acceptance": "AcceptanceCriteria_M2XFE_v1_0.md",
+    "invariants": "InvariantSchema_M2XFE_v1_0.md"
+  },
+
+  "execution": {
+    "deterministic": true,
+    "flop_ceiling": 2000,
+    "steps": [
+      "load_relaxation_grid",
+      "verify_relaxation_pass",
+      "compute_spectral_entropy",
+      "compute_spectral_curvature",
+      "compute_eigenvalues",
+      "detect_spectral_spikes",
+      "generate_spectral_metrics",
+      "evaluate_spectral_acceptance"
+    ]
+  },
+
+  "metrics": {
+    "entropy_initial": null,
+    "entropy_final": null,
+    "curvature_band": null,
+    "eigenvalues": [],
+    "spikes_detected": false
+  },
+
+  "falsification": {
+    "threshold_violations": [],
+    "invariant_violations": [],
+    "acceptance_failure": false
+  },
+
+  "provenance": {
+    "timestamp": null,
+    "spectral_version": "1.0",
+    "relaxation_version": "1.0",
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling"
+  }
+}
+```
+
+---
+
+## ⚙️ **4. Execution Logic (governed)**
+
+The Spectral Metrics phase enforces:
+
+- **Entropy decrease invariant**  
+- **Curvature stability invariant**  
+- **Signature coherence invariant**  
+- **Eigenvalue domain invariant**  
+
+If any invariant fails, the simulation halts and is marked FAIL.
+
+---
+
+## 🔮 **5. Falsification Conditions**
+
+The Spectral Metrics phase is **FAIL** if:
+
+- entropy increases  
+- curvature oscillates beyond threshold  
+- spectral spikes appear  
+- eigenvalues violate domain  
+- any invariant violated  
+- any acceptance criteria unmet  
+
+This ensures the manifold is truly stable before final provenance is generated.
+
+---
+
+## 🧱 **6. Spectral → Provenance Manifest**
+
+This artifact is **A0 altitude**.  
+It must be followed by:
+
+- **Provenance Manifest**  
+
+This will finalize the simulation and record PASS/FAIL.
+
+---
+
+## 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Spectral Metrics Template — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • metrics
+Altitude: A0
+Mode: Execution • Deterministic • Diagnostic
+
+Purpose:
+  Define the deterministic spectral analysis template for the M2-XFE 
+  spectral-tension simulation. Computes entropy, curvature, eigenvalues, and 
+  spectral stability metrics required for final PASS/FAIL evaluation.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines execution template only. It does not activate NDH 
+  geometry, spectral runtime, solver kernels, membranes, routing skeletons, 
+  or any technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 21:08 IST
+Version: v1.0
+---
+```
+
+---
+
