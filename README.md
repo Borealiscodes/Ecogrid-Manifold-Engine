@@ -1,4 +1,4 @@
-# 🌍 **EcoGrid Manifold Engine**  
+# 📘 **EcoGrid Manifold Engine**  
 ### *Ultra‑low‑power spectral tension solver • NDH A3 governed architecture*
 
 EcoGrid is a **continuous spectral‑tension engine** designed to model instability, load imbalance, sustainability strain, and spectral drift across structured or synthetic environments — all under a strict **2,000 FLOP thermodynamic ceiling**.
@@ -15,36 +15,26 @@ EcoGrid is built for clarity, ethics, and computational minimalism.
 
 ---
 
-# 🗄️ **Legacy README Archive**
-
-The original README has been **archived for provenance** and historical continuity:
-
-```
-/ecogrid/public/archive/readme_v1_0.md
-```
-
-> **NDH Governance Note:**  
-> Legacy documentation is never deleted.  
-> It is archived, sealed, and referenced to preserve lineage and interpretive continuity.
-
----
-
 # 📐 **Mathematical Formulation (Gated, Expressive‑Only)**  
+
 The following equation is a **conceptual governing anchor** and is **not executed directly** by the solver:
 
-\[
-\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})
-\]
+```
+$$\frac{dP}{dt} = -L \cdot P(t) + W_{in} \cdot I(t) - \nabla_P(\text{VFE})$$
+```
 
 > **NDH Gate:**  
 > This equation is expressive‑only. EcoGrid does **not** implement a continuous PDE solver.
 
+---
+
 ### 🧮 **Implemented Solver Update (Discrete, FLOP‑Bounded)**  
+
 EcoGrid uses a **bounded, deterministic relaxation step**:
 
-\[
-P_{t+1} = P_t - \alpha (L P_t) + \beta (W_{in} I_t) - \gamma \nabla_P(\text{VFE}_t)
-\]
+```
+$$P_{t+1} = P_t - \alpha (L P_t) + \beta (W_{in} I_t) - \gamma \nabla_P(\text{VFE}_t)$$
+```
 
 > **NDH Gate:**  
 > This is the **only** mathematical form executed by the solver.  
