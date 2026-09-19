@@ -1,0 +1,184 @@
+# 🌩️ **EcoGrid M2‑XFE Shock Run Template (v1.0)**  
+**Lane:** runtime • simulation • shock  
+**Altitude:** A0  
+**Mode:** Execution • Deterministic • Instability Injection
+
+This is the second active computation in the M2‑XFE runtime pipeline.  
+It follows immediately after the Baseline Run and is the **first phase that introduces instability** into the manifold.
+
+It must satisfy:
+
+- **Shock Thresholds**  
+- **Shock Acceptance**  
+- **Shock Invariants**  
+
+before the Relaxation Run is allowed to execute.
+
+---
+
+# 🧭 **1. Purpose of the Shock Run**
+
+The Shock Run:
+
+- injects governed instability  
+- propagates shock through the 9×9 grid  
+- respects manifold topology  
+- computes shock metrics  
+- prepares the grid for relaxation cycles  
+
+It is the “moment of impact” in the simulation.
+
+---
+
+# 🧩 **2. Shock Run Inputs**
+
+The Shock Run consumes:
+
+- **Baseline Output**  
+- **Adapter Output**  
+- **Thresholds Artifact**  
+- **Acceptance Criteria Artifact**  
+- **Invariant Schema Artifact**
+
+These ensure governed, falsifiable execution.
+
+---
+
+# 🧱 **3. Shock Run Machine‑Readable Template**
+
+```json
+{
+  "shock_version": "1.0",
+  "baseline_source": "BaselineRun_M2XFE_v1_0.json",
+
+  "inputs": {
+    "baseline_grid": "from_baseline",
+    "thresholds": "Thresholds_M2XFE_v1_0.md",
+    "acceptance": "AcceptanceCriteria_M2XFE_v1_0.md",
+    "invariants": "InvariantSchema_M2XFE_v1_0.md"
+  },
+
+  "execution": {
+    "deterministic": true,
+    "flop_ceiling": 2000,
+    "steps": [
+      "load_baseline_grid",
+      "verify_baseline_pass",
+      "inject_shock_origin",
+      "propagate_shock_monotonically",
+      "respect_topology_constraints",
+      "compute_shock_delta",
+      "compute_adjacency_reach",
+      "compute_shock_intensity_map",
+      "generate_shock_metrics"
+    ]
+  },
+
+  "shock": {
+    "origin": {"x": 4, "y": 4},
+    "delta": null,
+    "adjacency_reach": null,
+    "intensity_map": "generated"
+  },
+
+  "metrics": {
+    "delta": null,
+    "adjacency_cells": null,
+    "max_intensity": null,
+    "topology_respected": true
+  },
+
+  "falsification": {
+    "threshold_violations": [],
+    "invariant_violations": [],
+    "acceptance_failure": false
+  },
+
+  "provenance": {
+    "timestamp": null,
+    "shock_version": "1.0",
+    "baseline_version": "1.0",
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling"
+  }
+}
+```
+
+---
+
+# ⚙️ **4. Execution Logic (governed)**
+
+The Shock Run performs:
+
+- **Shock delta computation**  
+- **Adjacency propagation check**  
+- **Topology‑respect validation**  
+- **Intensity ceiling enforcement**  
+- **Monotonic propagation enforcement**
+
+If any invariant or threshold fails, the simulation halts.
+
+---
+
+# 🔮 **5. Falsification Conditions**
+
+The Shock Run is **FAIL** if:
+
+- shock delta < threshold  
+- adjacency reach < threshold  
+- any shock cell > 1.0  
+- propagation violates topology  
+- propagation is non‑monotonic  
+- any invariant violated  
+- any acceptance criteria unmet  
+
+This ensures the shock behaves as a governed instability, not a chaotic one.
+
+---
+
+# 🧱 **6. Shock → Relaxation → Metrics**
+
+This artifact is **A0 altitude**.  
+It must be followed by:
+
+- **Relaxation Run Template**  
+- **Spectral Metrics Template**  
+
+---
+
+# 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Shock Run Template — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • shock
+Altitude: A0
+Mode: Execution • Deterministic • Instability Injection
+
+Purpose:
+  Define the deterministic shock execution template for the M2-XFE 
+  spectral-tension simulation. Injects governed instability, enforces 
+  monotonic propagation, respects manifold topology, and computes shock 
+  metrics required for relaxation cycles.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines execution template only. It does not activate NDH 
+  geometry, spectral runtime, solver kernels, membranes, routing skeletons, 
+  or any technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 21:04 IST
+Version: v1.0
+---
+```
+
+---
+
