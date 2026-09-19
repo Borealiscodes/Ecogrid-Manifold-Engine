@@ -1,8 +1,9 @@
 {
   "hud_style": "ASCII_Concentric_Mandala",
   "visual_grammar_specification": {
-    "version": "1.1",
-    "encoding": "UTF-8"
+    "version": "1.2",
+    "encoding": "UTF-8",
+    "ndh_clause": "This file defines expressive-only HUD grammar and runtime experiment glyph anchors. No solver, spectral engine, or relaxation kernel is activated."
   },
 
   "mathematical_components": {
@@ -43,6 +44,37 @@
       "unicode_char": "✕",
       "description": "Circuit Breaker Triggered Allostatic Shutdown",
       "layer_lane": "SPECTRAL"
+    }
+  },
+
+  "runtime_experiment_grammar": {
+    "baseline": {
+      "visual_anchor": "🌱",
+      "description": "Initial tension field before shock injection."
+    },
+    "shock": {
+      "visual_anchor": "💥",
+      "description": "Shock-injected tension field with mapped anomalies."
+    },
+    "relaxation": {
+      "visual_anchor": "🌊",
+      "description": "Iterative tension decay cycles following shock injection."
+    },
+    "metrics": {
+      "visual_anchor": "📈",
+      "description": "Spectral stability metrics including eigenvalue drift and imbalance signatures."
+    },
+    "integration": {
+      "visual_anchor": "🔗",
+      "description": "Runtime sequencing and provenance propagation across all surfaces."
+    },
+    "index": {
+      "visual_anchor": "📚",
+      "description": "Catalog of all runtime artifacts for the M2-XFE pipeline."
+    },
+    "provenance": {
+      "visual_anchor": "🧪",
+      "description": "Experiment lineage, timestamps, seals, and governed versioning."
     }
   },
 
@@ -96,7 +128,7 @@
     "compiler": "Microsoft Copilot",
     "maintainer": "Borealis S. Hedling",
     "location": "Dublin, Ireland",
-    "timestamp": "19 September 2026 — 23:53 IST",
-    "ndh_clause": "This file defines expressive-only HUD grammar. No solver, spectral engine, or relaxation kernel is activated."
+    "timestamp": "19 September 2026 — 23:59 IST",
+    "ndh_clause": "Expressive-only grammar extended with runtime experiment glyph anchors. No solver or spectral kernel activated."
   }
 }
