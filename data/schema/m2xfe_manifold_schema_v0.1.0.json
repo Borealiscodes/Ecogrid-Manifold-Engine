@@ -1,0 +1,122 @@
+# **EcoGrid Synthetic Manifold Schema (M2‑XFE)**  
+### **Version:** v0.1.0  
+### **Altitude:** A2  
+### **Lane:** Data • Ontology  
+### **Purpose:** Define the governed schema for representing the Battle of M2‑XFE as a synthetic manifold for EcoGrid spectral‑tension testing.
+
+---
+
+## 🌐 **1. Schema Overview**
+This schema defines how raw battle data (zKillboard, CCP TD logs, Dotlan topology, EVE University timeline) is represented as a **structured manifold** suitable for EcoGrid’s 9×9 tension engine.
+
+It is intentionally minimal, deterministic, and FLOP‑friendly.
+
+---
+
+## 📘 **2. Top‑Level Structure**
+```json
+{
+  "manifold_id": "m2xfe_v0.1.0",
+  "generated_at": "2026-09-19T14:43:00Z",
+  "nodes": [],
+  "edges": [],
+  "shocks": [],
+  "metadata": {}
+}
+```
+
+---
+
+## 🧩 **3. Node Schema**
+Each node represents a **system**, **fleet cluster**, or **logistics hub**.
+
+```json
+{
+  "node_id": "string",
+  "type": "system | fleet_cluster | logistics_hub",
+  "position": { "x": "number", "y": "number" },
+  "kill_density": "number",
+  "fleet_density": "number",
+  "td_intensity": "number",
+  "is_chokepoint": "boolean",
+  "attributes": {}
+}
+```
+
+### Key fields:
+- **kill_density** — normalized kill count  
+- **fleet_density** — normalized fleet mass  
+- **td_intensity** — time dilation severity  
+- **is_chokepoint** — Keepstar, staging, reship point  
+
+---
+
+## 🔗 **4. Edge Schema**
+Edges represent **movement routes**, **gate connections**, or **logistics pathways**.
+
+```json
+{
+  "edge_id": "string",
+  "from": "node_id",
+  "to": "node_id",
+  "weight": "number",
+  "attributes": {}
+}
+```
+
+### Key fields:
+- **weight** — adjacency strength (Dotlan topology)  
+
+---
+
+## ⚡ **5. Shock Event Schema**
+Shock events represent **titan kills**, **mass jumps**, or **TD spikes**.
+
+```json
+{
+  "shock_id": "string",
+  "timestamp": "string",
+  "node_id": "string",
+  "shock_type": "titan_kill | mass_jump | td_spike",
+  "magnitude": "number",
+  "attributes": {}
+}
+```
+
+### Key fields:
+- **magnitude** — normalized shock intensity  
+- **shock_type** — governs how EcoGrid injects tension  
+
+---
+
+## 🧠 **6. Metadata Schema**
+```json
+{
+  "battle_name": "Battle of M2-XFE",
+  "date_range": "2020-12-30/2020-12-31",
+  "sources": {
+    "zkillboard": "public",
+    "ccp_td_logs": "public",
+    "dotlan": "public",
+    "eve_university": "public"
+  }
+}
+```
+
+---
+
+## 🪶 **7. Provenance Footer**
+```
+---
+Artifact: EcoGrid Synthetic Manifold Schema (M2-XFE)
+Version: v0.1.0
+Altitude: A2
+Lane: Data • Ontology
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Seal: [ S C H E M A • M 2 X F E • v0_1_0 ]
+---
+```
+
+---
+
