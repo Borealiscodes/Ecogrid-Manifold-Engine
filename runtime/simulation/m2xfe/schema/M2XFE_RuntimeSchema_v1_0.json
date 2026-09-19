@@ -1,0 +1,205 @@
+# 🌌 **EcoGrid M2‑XFE Machine‑Readable JSON Block Schema (v1.0)**  
+**Lane:** runtime • simulation • schema  
+**Altitude:** A1  
+**Mode:** Formal Schema • Deterministic • Machine‑Readable
+
+This artifact defines the **formal JSON schema** used by the M2‑XFE runtime pipeline.  
+It encodes:
+
+- thresholds  
+- acceptance criteria  
+- invariants  
+- runtime ordering  
+- provenance fields  
+
+This schema is the **first altitude where code can interact** with the governed logic.
+
+---
+
+# 🧭 **1. Schema Philosophy**
+
+This schema is:
+
+- deterministic  
+- FLOP‑bounded  
+- non‑random  
+- non‑external  
+- fully governed  
+
+It is not a runtime engine.  
+It is the **formal container** for governed logic.
+
+---
+
+# 🧱 **2. Machine‑Readable JSON Block Schema**
+
+```json
+{
+  "schema_version": "1.0",
+  "manifold": {
+    "grid_size": "9x9",
+    "domain": [0.0, 1.0],
+    "deterministic": true,
+    "flop_ceiling": 2000
+  },
+
+  "invariants": {
+    "structural": {
+      "grid_shape": "9x9",
+      "determinism": true,
+      "isolation": true,
+      "domain_bounds": [0.0, 1.0]
+    },
+    "baseline": {
+      "low_variance": true,
+      "no_hidden_shocks": true,
+      "continuity": true
+    },
+    "shock": {
+      "monotonic_propagation": true,
+      "topology_respect": true,
+      "bounded_intensity": true,
+      "causality": true
+    },
+    "relaxation": {
+      "monotonic_relaxation": true,
+      "convergence_required": true,
+      "oscillation_bound": 0.03,
+      "no_reshock": true
+    },
+    "spectral": {
+      "entropy_decrease": true,
+      "curvature_stability": true,
+      "signature_coherence": true,
+      "eigenvalue_domain": "non-negative"
+    },
+    "cross_phase": {
+      "phase_continuity": true,
+      "threshold_alignment": true,
+      "acceptance_alignment": true,
+      "falsifiability": true
+    }
+  },
+
+  "thresholds": {
+    "baseline": {
+      "variance_max": 0.05,
+      "tension_max": 0.10,
+      "cell_ceiling": 0.15
+    },
+    "shock": {
+      "delta_min": 0.20,
+      "adjacency_min": 4,
+      "cell_ceiling": 1.0
+    },
+    "relaxation": {
+      "cycle_drop_min": 0.10,
+      "convergence_cycles_max": 8,
+      "final_tension_max": 0.12,
+      "oscillation_max": 0.03
+    },
+    "spectral": {
+      "entropy_direction": "decrease",
+      "curvature_band": 0.02,
+      "oscillation_max": 0.03
+    }
+  },
+
+  "acceptance_criteria": {
+    "baseline": {
+      "must_meet_thresholds": true,
+      "must_meet_invariants": true
+    },
+    "shock": {
+      "must_meet_thresholds": true,
+      "must_meet_invariants": true
+    },
+    "relaxation": {
+      "must_meet_thresholds": true,
+      "must_meet_invariants": true
+    },
+    "spectral": {
+      "must_meet_thresholds": true,
+      "must_meet_invariants": true
+    },
+    "global": {
+      "all_phases_must_pass": true
+    }
+  },
+
+  "runtime_ordering": [
+    "manifold",
+    "adapter_output",
+    "baseline_run",
+    "shock_run",
+    "relaxation_cycles",
+    "spectral_metrics",
+    "provenance_manifest"
+  ],
+
+  "provenance": {
+    "timestamp": null,
+    "version": "v1.0",
+    "flops_used": null,
+    "thresholds_version": "v1.0",
+    "acceptance_version": "v1.0",
+    "invariants_version": "v1.0",
+    "simulation_pass": null
+  }
+}
+```
+
+---
+
+# 🧩 **3. Why this schema is correct**
+
+It:
+
+- encodes all A2 artifacts  
+- respects determinism  
+- respects FLOP ceilings  
+- respects isolation  
+- respects NDH altitude separation  
+- is fully falsifiable  
+- is ready for runtime consumption  
+
+This is the **first artifact** that runtime code can safely load.
+
+---
+
+# 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Machine-Readable JSON Block Schema — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • schema
+Altitude: A1
+Mode: Formal Schema • Deterministic • Machine-Readable
+
+Purpose:
+  Define the formal JSON schema for the M2-XFE spectral-tension simulation, 
+  encoding thresholds, acceptance criteria, invariants, runtime ordering, and 
+  provenance fields. Provides the machine-readable foundation required for 
+  deterministic, governed runtime execution.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines schema only. It does not activate NDH geometry, 
+  spectral runtime, solver kernels, membranes, routing skeletons, or any 
+  technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 20:58 IST
+Version: v1.0
+---
+```
+
+---
+
