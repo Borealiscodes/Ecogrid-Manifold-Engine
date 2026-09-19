@@ -1,0 +1,183 @@
+# 🌊 **EcoGrid M2‑XFE Relaxation Run Template (v1.0)**  
+**Lane:** runtime • simulation • relaxation  
+**Altitude:** A0  
+**Mode:** Execution • Deterministic • Dissipation
+
+The Relaxation Run is the **post‑shock settling phase**.  
+It consumes the Shock Run output and performs governed relaxation cycles until the system converges.
+
+It must satisfy:
+
+- **Relaxation Thresholds**  
+- **Relaxation Acceptance**  
+- **Relaxation Invariants**  
+
+before spectral metrics are allowed to execute.
+
+---
+
+# 🧭 **1. Purpose of the Relaxation Run**
+
+The Relaxation Run:
+
+- dissipates shock energy  
+- reduces tension monotonically  
+- enforces convergence  
+- prevents re‑shock  
+- computes relaxation metrics  
+- prepares the grid for spectral analysis  
+
+It is the “cooling phase” of the simulation.
+
+---
+
+# 🧩 **2. Relaxation Run Inputs**
+
+The Relaxation Run consumes:
+
+- **Shock Run Output**  
+- **Thresholds Artifact**  
+- **Acceptance Criteria Artifact**  
+- **Invariant Schema Artifact**
+
+These ensure governed, falsifiable execution.
+
+---
+
+# 🧱 **3. Relaxation Run Machine‑Readable Template**
+
+```json
+{
+  "relaxation_version": "1.0",
+  "shock_source": "ShockRun_M2XFE_v1_0.json",
+
+  "inputs": {
+    "shock_grid": "from_shock",
+    "thresholds": "Thresholds_M2XFE_v1_0.md",
+    "acceptance": "AcceptanceCriteria_M2XFE_v1_0.md",
+    "invariants": "InvariantSchema_M2XFE_v1_0.md"
+  },
+
+  "execution": {
+    "deterministic": true,
+    "flop_ceiling": 2000,
+    "max_cycles": 8,
+    "steps": [
+      "load_shock_grid",
+      "verify_shock_pass",
+      "initialize_relaxation_cycle",
+      "apply_relaxation_operator",
+      "enforce_monotonic_drop",
+      "compute_cycle_metrics",
+      "check_convergence",
+      "repeat_until_converged_or_max_cycles"
+    ]
+  },
+
+  "cycles": {
+    "performed": null,
+    "converged": null,
+    "tension_trace": []
+  },
+
+  "metrics": {
+    "final_tension": null,
+    "oscillation_detected": false,
+    "convergence_achieved": null
+  },
+
+  "falsification": {
+    "threshold_violations": [],
+    "invariant_violations": [],
+    "acceptance_failure": false
+  },
+
+  "provenance": {
+    "timestamp": null,
+    "relaxation_version": "1.0",
+    "shock_version": "1.0",
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling"
+  }
+}
+```
+
+---
+
+# ⚙️ **4. Execution Logic (governed)**
+
+The Relaxation Run enforces:
+
+- **Monotonic relaxation invariant**  
+- **Convergence invariant**  
+- **Oscillation bound invariant**  
+- **No re‑shock invariant**
+
+Each cycle must reduce tension by ≥10% until convergence or cycle limit.
+
+If any invariant fails, the simulation halts.
+
+---
+
+# 🔮 **5. Falsification Conditions**
+
+The Relaxation Run is **FAIL** if:
+
+- tension increases after cycle 2  
+- oscillation > threshold  
+- convergence not achieved within 8 cycles  
+- final tension > threshold  
+- any invariant violated  
+- any acceptance criteria unmet  
+
+This ensures relaxation behaves as governed dissipation, not chaotic drift.
+
+---
+
+# 🧱 **6. Relaxation → Spectral Metrics**
+
+This artifact is **A0 altitude**.  
+It must be followed by:
+
+- **Spectral Metrics Template**  
+
+This will be the final execution‑phase artifact before the provenance manifest.
+
+---
+
+# 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Relaxation Run Template — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • relaxation
+Altitude: A0
+Mode: Execution • Deterministic • Dissipation
+
+Purpose:
+  Define the deterministic relaxation execution template for the M2-XFE 
+  spectral-tension simulation. Enforces monotonic tension reduction, bounded 
+  oscillation, and convergence within governed cycle limits. Produces 
+  relaxation metrics required for spectral analysis.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines execution template only. It does not activate NDH 
+  geometry, spectral runtime, solver kernels, membranes, routing skeletons, 
+  or any technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 21:06 IST
+Version: v1.0
+---
+```
+
+---
+
