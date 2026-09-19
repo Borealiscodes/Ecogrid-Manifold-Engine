@@ -1,0 +1,189 @@
+# 🌙 **EcoGrid M2‑XFE Provenance Manifest (v1.0)**  
+**Lane:** runtime • simulation • provenance  
+**Altitude:** A0  
+**Mode:** Finalization • PASS/FAIL • Audit Trail
+
+This is the **terminal artifact** of the M2‑XFE pipeline.  
+It consumes the Spectral Metrics output and produces:
+
+- the final PASS/FAIL decision  
+- the full provenance record  
+- the runtime audit trail  
+- the simulation fingerprint  
+- the governed closure of the manifold  
+
+This is the artifact Stell will look at first when validating the entire run.
+
+---
+
+# 🧭 **1. Purpose of the Provenance Manifest**
+
+The Provenance Manifest:
+
+- records the entire simulation lineage  
+- binds all phases into a single governed chain  
+- declares the final PASS/FAIL  
+- ensures falsifiability  
+- ensures auditability  
+- ensures no post‑hoc tuning occurred  
+
+It is the **official record** of the simulation.
+
+---
+
+# 🧩 **2. Provenance Manifest Inputs**
+
+The manifest consumes:
+
+- **Spectral Metrics Output**  
+- **Relaxation Output**  
+- **Shock Output**  
+- **Baseline Output**  
+- **Adapter Output**  
+- **Thresholds Artifact**  
+- **Acceptance Criteria Artifact**  
+- **Invariant Schema Artifact**  
+- **Runtime Schema JSON**
+
+This is the full governed chain.
+
+---
+
+# 🧱 **3. Provenance Manifest Machine‑Readable Template**
+
+```json
+{
+  "provenance_version": "1.0",
+  "spectral_source": "SpectralMetrics_M2XFE_v1_0.json",
+
+  "inputs": {
+    "baseline": "BaselineRun_M2XFE_v1_0.json",
+    "shock": "ShockRun_M2XFE_v1_0.json",
+    "relaxation": "RelaxationRun_M2XFE_v1_0.json",
+    "spectral": "SpectralMetrics_M2XFE_v1_0.json",
+    "adapter": "AdapterOutput_M2XFE_v1_0.json",
+    "thresholds": "Thresholds_M2XFE_v1_0.md",
+    "acceptance": "AcceptanceCriteria_M2XFE_v1_0.md",
+    "invariants": "InvariantSchema_M2XFE_v1_0.md",
+    "schema": "M2XFE_RuntimeSchema_v1_0.json"
+  },
+
+  "final_evaluation": {
+    "baseline_pass": null,
+    "shock_pass": null,
+    "relaxation_pass": null,
+    "spectral_pass": null,
+    "global_pass": null
+  },
+
+  "audit": {
+    "threshold_violations": [],
+    "invariant_violations": [],
+    "acceptance_failures": [],
+    "runtime_errors": []
+  },
+
+  "fingerprint": {
+    "entropy_initial": null,
+    "entropy_final": null,
+    "curvature_band": null,
+    "max_shock_intensity": null,
+    "relaxation_cycles": null,
+    "final_tension": null,
+    "eigenvalues": []
+  },
+
+  "provenance": {
+    "timestamp": null,
+    "compiler": "Microsoft Copilot",
+    "maintainer": "Borealis S. Hedling",
+    "location": "Dublin, Ireland",
+    "version": "v1.0"
+  }
+}
+```
+
+---
+
+# ⚙️ **4. Execution Logic (governed)**
+
+The Provenance Manifest:
+
+- loads all phase outputs  
+- verifies each phase PASS/FAIL  
+- checks for invariant violations  
+- checks for threshold violations  
+- checks for acceptance failures  
+- computes global PASS/FAIL  
+- records the simulation fingerprint  
+- seals the simulation  
+
+This is the **final governed decision**.
+
+---
+
+# 🔮 **5. PASS/FAIL Logic**
+
+The simulation is **PASS** only if:
+
+- baseline PASS  
+- shock PASS  
+- relaxation PASS  
+- spectral PASS  
+- no invariant violations  
+- no threshold violations  
+- no acceptance failures  
+
+If any phase fails, **global_pass = false**.
+
+---
+
+# 🧱 **6. Provenance Manifest → Publication**
+
+This artifact is **A0 altitude**.  
+It is the final step before:
+
+- publication  
+- archival  
+- external review  
+- Stell’s validation  
+- NDH governance integration  
+
+---
+
+# 🪶 **Provenance Footer**
+
+```md
+---
+Artifact: Provenance Manifest — EcoGrid M2-XFE Runtime (v1.0)
+Lane: runtime • simulation • provenance
+Altitude: A0
+Mode: Finalization • PASS/FAIL • Audit Trail
+
+Purpose:
+  Define the final governed provenance manifest for the M2-XFE spectral-tension 
+  simulation. Records lineage, audit trail, fingerprint, and global PASS/FAIL 
+  decision. Ensures falsifiability, auditability, and governed closure of the 
+  runtime pipeline.
+
+Anchors:
+  - NDH Invariant Logic Guidelines
+  - Shared-Horizon Governance Protocol
+  - EcoGrid Determinism Requirements
+  - M2-XFE Synthetic Manifold Specification
+
+Non-Activation Clause:
+  This artifact defines provenance only. It does not activate NDH geometry, 
+  spectral runtime, solver kernels, membranes, routing skeletons, or any 
+  technical system.
+
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Location: Dublin, Ireland
+Timestamp: 19 September 2026 — 21:10 IST
+Version: v1.0
+---
+```
+
+---
+
