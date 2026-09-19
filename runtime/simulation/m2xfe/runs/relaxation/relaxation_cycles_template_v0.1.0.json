@@ -1,0 +1,87 @@
+# **EcoGrid Relaxation Cycles Template (M2‑XFE)**  
+### Version: v0.1.0  
+### Altitude: A1  
+### Lane: Runtime • Execution Surface  
+### Purpose: Provide the governed JSON template for EcoGrid’s iterative relaxation cycles following shock injection.
+
+---
+
+## 🌐 **1. Template Overview**
+Relaxation cycles represent:
+
+- the **post‑shock decay** of tension  
+- governed by EcoGrid’s Laplacian relaxation  
+- executed under the **2,000 FLOP ceiling**  
+- producing a sequence of tension fields over time  
+
+This run tests **H2 — transient instability decay** and **H3 — persistent strain at chokepoints**.
+
+---
+
+## 📘 **2. JSON Template**
+```json
+{
+  "run_id": "relaxation_v0.1.0",
+  "generated_at": "2026-09-19T14:55:00Z",
+  "grid_size": "9x9",
+
+  "cycles": [
+    {
+      "cycle": 0,
+      "tension_field": [
+        [
+          {
+            "tension": 0.0,
+            "shock_residual": 0.0,
+            "is_chokepoint": false
+          }
+        ]
+      ]
+    },
+    {
+      "cycle": 1,
+      "tension_field": [
+        [
+          {
+            "tension": 0.0,
+            "shock_residual": 0.0,
+            "is_chokepoint": false
+          }
+        ]
+      ]
+    }
+  ],
+
+  "metadata": {
+    "source_shock_run": "shock_run.json",
+    "adapter_version": "v0.1.0",
+    "relaxation_cycles": 12,
+    "notes": "Iterative tension decay following shock injection."
+  }
+}
+```
+
+### Notes:
+- Template shows **cycle 0** and **cycle 1** only; full runs contain 12 cycles.  
+- `tension` is the updated value after each relaxation step.  
+- `shock_residual` tracks lingering instability.  
+- Chokepoints often retain higher residual tension.  
+- All values remain normalized and deterministic.
+
+---
+
+## 🪶 **3. Provenance Footer**
+```
+---
+Artifact: EcoGrid Relaxation Cycles Template (M2-XFE)
+Version: v0.1.0
+Altitude: A1
+Lane: Runtime • Execution Surface
+Maintainer: Borealis S. Hedling
+Compiler: Microsoft Copilot
+Seal: [ R E L A X • M 2 X F E • v0_1_0 ]
+---
+```
+
+---
+
